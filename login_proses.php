@@ -16,20 +16,24 @@ if ($result->num_rows == 1) {
   if (password_verify($password, $row['password'])) {
     $_SESSION['username'] = $username; // Set session
     $_SESSION['role'] = $row['role'];
-    echo "Login successful! Welcome, " . $username;
+    // echo "Login successful! Welcome, " . $username;
     if ($_SESSION['role'] == 'admin') {
-      header("Refresh: 3; URL=admin/index.html"); // Redirect to login.html after 3 seconds
+      header("location: admin/index.html"); // Redirect to login.html after 3 seconds
       exit();
     } else {
-      header("Refresh: 3; URL=index2.php"); // Redirect to login.html after 3 seconds
+      header("location: index2.php"); // Redirect to login.html after 3 seconds
       exit();
     }
     // Redirect to a logged-in page or perform necessary actions
   } else {
-    echo "Invalid password!";
+    echo '<script>alert("Username atau password yang anda masukkan salah!");</script>';
+    header("location: login.php");
+    exit();
   }
 } else {
-  echo "Invalid username!";
+  echo '<script>alert("Username atau password yang anda masukkan salah!");</script>';
+  header("location: login.php");
+  exit();
 }
 
 // Close the statement and database koneksiection

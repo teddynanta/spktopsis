@@ -35,10 +35,9 @@ include "koneksi.php";
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="resume.html">Cara Daftar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="projects.html">Cara Pengajuan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,10 +50,10 @@ include "koneksi.php";
                         <!-- Header text content-->
                         <div class="text-center text-xxl-start">
                             <div class="badge bg-gradient-primary-to-secondary text-white mb-4">
-                                <div class="text-uppercase">Design &middot; Development &middot; Marketing</div>
+                                <div class="text-uppercase">Mudah &middot; Cepat &middot; Efektif</div>
                             </div>
-                            <div class="fs-3 fw-light text-muted">I can help your business to</div>
-                            <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Get online and grow fast</span></h1>
+                            <div class="fs-3 fw-light text-muted">Untuk Bantu Kebutuhan Anda</div>
+                            <h1 class="display-2 fw-bolder mb-5"><span class="text-gradient d-inline">Dapatkan Pinjaman Segera</span></h1>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
                                 <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="login.php">Login</a>
                                 <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="projects.html">Cara Pengajuan</a>

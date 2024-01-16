@@ -17,8 +17,8 @@ include "koneksi.php";
   <!--bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <link href="tampilan/css/bootstrap.min.css" rel="stylesheet">
-  <link href="styles/slider.css" rel="stylesheet" type="text/css" media="all">
+  <!-- <link href="tampilan/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles/slider.css" rel="stylesheet" type="text/css" media="all"> -->
   <style>
     body {
       display: flex;
@@ -38,8 +38,8 @@ include "koneksi.php";
   <!--navbar navbar-default navbar-custom-->
   <!--menu-->
   <nav class="navbar navbar-expand-lg text-dark bg-primary mt-0" data-bs-theme="dark">
-    <div class="container justify-content-start w-50">
-      <a class="navbar-brand" href="index2.php">Sistem Pendukung Keputusan Metode Topsis</a>
+    <div class="container justify-content-start">
+      <a class="navbar-brand text-wrap" href="index2.php">Sistem Pendukung Keputusan Metode Topsis</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -68,36 +68,75 @@ include "koneksi.php";
     </div>
     </div>
   </nav><br><br>
+  <div class="container row mx-auto">
+    <div class="card col-lg-12 col-md-6">
+      <div class="card-header">
+        Form pengajuan pinjaman
+      </div>
+      <div class="card-body">
+        <h5 class="card-title mb-5">Silahkan isikan data anda!</h5>
+        <div class="container"></div>
+        <form action="tambahdata.php" method="post">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Pekerjaan</label>
+            <select class="form-select" aria-label="Default select example" name="pekerjaan">
+              <option selected>Pekerjaan</option>
+              <option value="5">Pegawai Negeri Sipil</option>
+              <option value="4">Pegawai BUMN</option>
+              <option value="3">Pegawai Swasta</option>
+              <option value="2">Pegawai Harian Lepas</option>
+              <option value="1">Tidak Bekerja</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Penghasilan per bulan</label>
+            <select class="form-select" aria-label="Default select example" name="penghasilan">
+              <option selected>Penghasilan</option>
+              <option value="5">Di atas Rp. 10.000.000</option>
+              <option value="4">Rp. 5.000.000 - Rp. 10.000.000</option>
+              <option value="3">Rp. 1.000.000 - Rp. 5.000.000</option>
+              <option value="2">Rp. 500.000 - Rp. 1.000.000 </option>
+              <option value="1">Di Bawah Rp. 500.000</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Pengeluaran per bulan</label>
+            <select class="form-select" aria-label="Default select example" name="pengeluaran">
+              <option selected>Pengeluaran</option>
+              <option value="5">Di atas Rp. 10.000.000</option>
+              <option value="4">Rp. 5.000.000 - Rp. 10.000.000</option>
+              <option value="3">Rp. 1.000.000 - Rp. 5.000.000</option>
+              <option value="2">Rp. 500.000 - Rp. 1.000.000 </option>
+              <option value="1">Di Bawah Rp. 500.000</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Hutang</label>
+            <select class="form-select" aria-label="Default select example" name="hutang">
+              <option selected>Hutang</option>
+              <option value="5">Di atas Rp. 10.000.000</option>
+              <option value="4">Rp. 5.000.000 - Rp. 10.000.000</option>
+              <option value="3">Rp. 1.000.000 - Rp. 5.000.000</option>
+              <option value="2">Rp. 500.000 - Rp. 1.000.000 </option>
+              <option value="1">Di Bawah Rp. 500.000</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Tabungan</label>
+            <select class="form-select" aria-label="Default select example" name="tabungan">
+              <option selected>Tabungan (Di Bank, Aset Tanah, Barang Berharga, dll)</option>
+              <option value="5">Di atas Rp. 10.000.000</option>
+              <option value="4">Rp. 5.000.000 - Rp. 10.000.000</option>
+              <option value="3">Rp. 1.000.000 - Rp. 5.000.000</option>
+              <option value="2">Rp. 500.000 - Rp. 1.000.000 </option>
+              <option value="1">Di Bawah Rp. 500.000</option>
+            </select>
+          </div>
 
-  <div class="container w-50">
-    <form action="tambahdata.php" method="post">
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">data 1</label>
-        <input type="text" class="form-control" name="data1">
+          <button type="submit" class="btn btn-primary">Buat Pengajuan</button>
+        </form>
       </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">data 2</label>
-        <input type="text" class="form-control" name="data2">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">data 3</label>
-        <input type="text" class="form-control" name="data3">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">data 4</label>
-        <input type="text" class="form-control" name="data4">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">data 5</label>
-        <input type="text" class="form-control" name="data5">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">data 6</label>
-        <input type="text" class="form-control" name="data6">
-      </div>
-
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
   </div>
 
   <!--footer-->

@@ -39,7 +39,7 @@ include "koneksi.php";
   <!--menu-->
   <nav class="navbar navbar-expand-lg text-dark bg-primary mt-0" data-bs-theme="dark">
     <div class="container justify-content-start w-50">
-      <a class="navbar-brand" href="#">Sistem Pendukung Keputusan Metode Topsis</a>
+      <a class="navbar-brand" href="index2.php">Sistem Pendukung Keputusan Metode Topsis</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -69,61 +69,8 @@ include "koneksi.php";
     </div>
   </nav><br><br>
 
-  <div class="container">
-    <h2>Selamat datang!</h2>
-
-    <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
-        <div class="panel panel-default">
-          <div class="panel-heading text-center">
-            Data Pengajuan
-          </div>
-
-          <div class="panel-body">
-            <!-- Tab panes -->
-            <div class="tab-content">
-              <div class="">
-                <!--tabel alternatif-->
-                <table class="table table-striped table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>No.</th>
-                      <th>ID Pengajuan</th>
-                      <th>Nama</th>
-                      <th>Tanggal Pengajuan</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                    $sql = $koneksi->query('SELECT * FROM tab_pengajuan');
-                    while ($row = $sql->fetch_array()) {
-                      if ($row == null) { ?>
-                        <tr>
-                          <td>Belum Ada Pengajuan</td>
-                        </tr>
-                      <?php } else {
-                      ?>
-                        <tr>
-                          <td><?php echo $row[0] ?></td>
-                          <td><?php echo $row[1] ?></td>
-                          <td><?php echo $row[7] ?></td>
-                          <td><?php echo $row[8] ?></td>
-                        </tr>
-
-                    <?php }
-                    } ?>
-                  </tbody>
-                </table>
-                <!--tabel alternatif-->
-              </div>
-            </div>
-          </div>
-          <!--panel body-->
-        </div>
-      </div>
-    </div>
-    <!-- <form action="tambahdata.php" method="post">
+  <div class="container w-50">
+    <form action="tambahdata.php" method="post">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">data 1</label>
         <input type="text" class="form-control" name="data1">
@@ -150,16 +97,9 @@ include "koneksi.php";
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
-    </form> -->
+    </form>
   </div>
-  <!-- <div id="slider">
-    <figure>
-      <img src="gambar/banner1.png">
-      <img src="gambar/banner2.png">
-      <img src="gambar/banner3.png">
-      <img src="gambar/banner2.png">
-    </figure>
-  </div> <br><br> -->
+
   <!--footer-->
   <footer class="footer mt-auto py-3 text-center">
     <div class="footer-below">

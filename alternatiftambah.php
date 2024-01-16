@@ -137,13 +137,13 @@ if ($datakode) {
     $sql    = "SELECT * FROM tab_alternatif";
     $tambah = $koneksi->query($sql);
 
-    if ($row = $tambah->fetch_row()) {
-      $masuk = "INSERT INTO tab_alternatif VALUES ('" . $id_alter . "','" . $alternatif . "')";
-      $buat  = $koneksi->query($masuk);
+    // if ($row = $tambah->fetch_row()) {
+    $masuk = "INSERT INTO tab_alternatif VALUES ('" . $id_alter . "','" . $alternatif . "')";
+    $buat  = $koneksi->query($masuk);
 
-      echo "<script>alert('Input Data Berhasil') </script>";
-      echo "<script>window.location.href = \"alternatif.php\" </script>";
-    }
+    echo "<script>alert('Input Data Berhasil') </script>";
+    echo "<script>window.location.href = \"alternatif.php\" </script>";
+    // }
   }
 
   ?>

@@ -2,7 +2,6 @@
 //koneksi
 session_start();
 include "koneksi.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +75,15 @@ include "koneksi.php";
       <div class="card-body">
         <h5 class="card-title mb-5">Silahkan isikan data anda!</h5>
         <div class="container"></div>
-        <form action="tambahdata.php" method="post">
+        <form action="tambahpengajuan.php" method="post">
+          <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">ID User</label>
+            <input type="text" id="disabledTextInput" name="iduser" class="form-control" value="<?php echo $_SESSION['uid'] ?>" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">Nama</label>
+            <input type="text" id="disabledTextInput" name="nama" class="form-control" value="<?php echo $_SESSION['nama'] ?>" readonly>
+          </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Pekerjaan</label>
             <select class="form-select" aria-label="Default select example" name="pekerjaan">

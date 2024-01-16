@@ -95,23 +95,20 @@ include "head.php";
                   </thead>
                   <tbody>
                     <?php
+                    $uid = $_SESSION['uid'];
                     $sql = $koneksi->query('SELECT * FROM tab_pengajuan');
-                    $row = $sql->fetch_array();
-                    if ($row == null) { ?>
-                      <tr>
-                        <td colspan="4" class="text-center fst-italic">Belum ada pengajuan</td>
-                      </tr>
-                    <?php }
-                    while ($row != null) {
+                    $users = $koneksi->query("SELECT * FROM users WHERE id = '$uid'");
+                    $user = $users->fetch_array();
+                    while ($row = $sql->fetch_array()) {
                     ?>
                       <tr>
-                        <!-- <td><?php echo $row[0] ?></td>
-                          <td><?php echo $row[1] ?></td>
-                          <td><?php echo $row[7] ?></td>
-                          <td><?php echo $row[8] ?></td> -->
+                        <td><?php echo $row['id'] ?></td>
+                        <td><?php echo $user['nama'] ?></td>
+                        <td><?php echo $row['tgl_pengajuan'] ?></td>
+                        <td><?php echo $row['status'] ?></td>
                       </tr>
-
-                    <?php }  ?>
+                    <?php
+                    } ?>
                   </tbody>
                 </table>
                 <!--tabel alternatif-->

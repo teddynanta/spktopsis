@@ -54,6 +54,9 @@ include "koneksi.php";
                   </div>
                   <form class="user" action="register_proses.php" method="post" role="form">
                     <div class="form-group">
+                      <input type="text" name="nama" class="form-control form-control-user" id="nama" aria-describedby="usernameHelp" placeholder="Masukkan Nama Anda...">
+                    </div>
+                    <div class="form-group">
                       <input type="text" name="username" class="form-control form-control-user" id="username" aria-describedby="usernameHelp" placeholder="Masukkan Username Anda...">
                     </div>
                     <div class="form-group">

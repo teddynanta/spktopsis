@@ -10,10 +10,13 @@ $stmt = $koneksi->prepare("SELECT * FROM users WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
 $result = $stmt->get_result();
+// var_dump($result->fetch_assoc());
 if ($result->num_rows == 1) {
   $row = $result->fetch_assoc();
   // var_dump($row);
   if (password_verify($password, $row['password'])) {
+    $_SESSION['uid'] = $row['id'];
+    $_SESSION['nama'] = $row['nama'];
     $_SESSION['username'] = $username; // Set session
     $_SESSION['role'] = $row['role'];
     // echo "Login successful! Welcome, " . $username;

@@ -33,13 +33,13 @@ include "koneksi.php";
   </style>
 </head>
 
-<body><br>
+<body class="mt-0 pt-0">
   <!--navbar navbar-default navbar-custom-->
   <!--menu-->
   <div class="container">
     <nav class="navbar navbar-expand-lg text-dark bg-primary mt-0" data-bs-theme="dark">
       <div class="container justify-content-start w-100">
-        <a class="navbar-brand text-wrap" href="#">Sistem Pendukung Keputusan Metode Topsis</a>
+        <a class="navbar-brand text-wrap" href="index2.php">Sistem Pendukung Keputusan Metode Topsis</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

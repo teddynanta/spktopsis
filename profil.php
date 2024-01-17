@@ -34,13 +34,13 @@ include "head.php";
 </style>
 </head>
 
-<body class="mt-0 pt-0"><br>
+<body class="mt-0 pt-0">
   <!--navbar navbar-default navbar-custom-->
   <!--menu-->
   <div class="container">
     <nav class="navbar navbar-expand-lg text-dark bg-primary mt-0" data-bs-theme="dark">
       <div class="container justify-content-start w-100">
-        <a class="navbar-brand text-wrap" href="#">Sistem Pendukung Keputusan Metode Topsis</a>
+        <a class="navbar-brand text-wrap" href="index2.php">Sistem Pendukung Keputusan Metode Topsis</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -90,43 +90,42 @@ include "head.php";
                 <p>Silahkan upload dokumen kelengkapan apabila ada yang belum lengkap.</p>
                 <i class="btn bg-warning bi bi-upload"></i> : menandakan anda belum mengupload file, klik icon untuk mengupload.<br>
                 <i class="btn bg-success bi bi-patch-check my-2"></i> : menandakan anda sudah mengupload file, klik icon untuk melihat berkas anda.
-                <table class="table table-responsive table-striped table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>ID User</th>
-                      <th>Nama</th>
-                      <th>Dokumen 1</th>
-                      <th>Dokumen 2</th>
-                      <th>Dokumen 3</th>
-                      <th>Dokumen 4</th>
-                      <th>Dokumen 5 </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                    $uid = $_SESSION['uid'];
-                    $users = $koneksi->query("SELECT * FROM users WHERE id = '$uid'");
-                    // $user = $users->fetch_array();
-                    while ($user = $users->fetch_array()) {
-                    ?>
+                <div class="table-responsive mb-5">
+                  <table class="table table-striped table-bordered table-hover">
+                    <thead>
                       <tr>
-                        <td><?php echo $user['id'] ?></td>
-                        <td><?php echo $user['nama'] ?></td>
-                        <td class="text-center"><?php echo ($user['dokumen1'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen1'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen1'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen1'></a>"; ?></td>
-
-                        <td class="text-center"><?php echo ($user['dokumen2'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen2'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen2'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen2'></a>"; ?></td>
-
-                        <td class="text-center"><?php echo ($user['dokumen3'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen3'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen3'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen3'></a>"; ?></td>
-
-                        <td class="text-center"><?php echo ($user['dokumen4'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen4'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen4'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen4'></a>"; ?></td>
-
-                        <td class="text-center"><?php echo ($user['dokumen5'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen5'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen5'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen5'></a>"; ?></td>
-
+                        <th class="text-center">ID User</th>
+                        <th class="text-center">Nama</th>
+                        <th class="text-center">Fotocopy KTP</th>
+                        <th class="text-center wrap-text">Fotocopy Surat Nikah & Kartu Keluarga</th>
+                        <th class="text-center">Slip Gaji Terakhir</th>
+                        <th class="text-center">Jaminan</th>
                       </tr>
-                    <?php
-                    } ?>
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      <?php
+                      $uid = $_SESSION['uid'];
+                      $users = $koneksi->query("SELECT * FROM users WHERE id = '$uid'");
+                      // $user = $users->fetch_array();
+                      while ($user = $users->fetch_array()) {
+                      ?>
+                        <tr>
+                          <td class="text-center"><?php echo $user['id'] ?></td>
+                          <td><?php echo $user['nama'] ?></td>
+                          <td class="text-center"><?php echo ($user['dokumen1'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen1'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen1'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen1'></a>"; ?></td>
+
+                          <td class="text-center"><?php echo ($user['dokumen2'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen2'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen2'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen2'></a>"; ?></td>
+
+                          <td class="text-center"><?php echo ($user['dokumen3'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen3'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen3'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen3'></a>"; ?></td>
+
+                          <td class="text-center"><?php echo ($user['dokumen4'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen4'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen4'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen4'></a>"; ?></td>
+
+                        </tr>
+                      <?php
+                      } ?>
+                    </tbody>
+                  </table>
+                </div>
                 <!--tabel alternatif-->
               </div>
             </div>
@@ -143,7 +142,7 @@ include "head.php";
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <em>Sistem Pendukung Keputusan Pemilihan Bus Pariwisata Metode Topsis</em>
+            <em>Sistem Pendukung Keputusan Metode Topsis</em>
           </div>
         </div>
       </div>

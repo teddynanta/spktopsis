@@ -112,7 +112,7 @@ include "head.php";
                       <tr>
                         <td><?php echo $user['id'] ?></td>
                         <td><?php echo $user['nama'] ?></td>
-                        <td class="text-center"><?php echo ($user['dokumen1'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?dok=dokumen1'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen1'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen1'></a>"; ?></td>
+                        <td class="text-center"><?php echo ($user['dokumen1'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen1'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen1'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen1'></a>"; ?></td>
 
                         <td class="text-center"><?php echo ($user['dokumen2'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen2'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen2'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen2'></a>"; ?></td>
 

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2024 at 07:30 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Jan 17, 2024 at 05:32 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -35,7 +36,7 @@ CREATE TABLE `data` (
   `data4` text NOT NULL,
   `data5` text NOT NULL,
   `data6` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `data`
@@ -53,15 +54,16 @@ INSERT INTO `data` (`id`, `data1`, `data2`, `data3`, `data4`, `data5`, `data6`) 
 CREATE TABLE `tab_alternatif` (
   `id_alternatif` varchar(10) NOT NULL,
   `nama_alternatif` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_alternatif`
 --
 
 INSERT INTO `tab_alternatif` (`id_alternatif`, `nama_alternatif`) VALUES
-('1', 'teddy'),
-('2', 'Wadiyah');
+('1', 'jono'),
+('2', 'Wadiyah'),
+('6', 'Teddy Nanta');
 
 -- --------------------------------------------------------
 
@@ -74,7 +76,7 @@ CREATE TABLE `tab_kriteria` (
   `nama_kriteria` varchar(50) NOT NULL,
   `bobot` float NOT NULL,
   `status` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_kriteria`
@@ -101,9 +103,23 @@ CREATE TABLE `tab_pengajuan` (
   `pengeluaran` int(128) NOT NULL,
   `hutang` int(128) NOT NULL,
   `simpanan` int(128) NOT NULL,
-  `tgl_pengajuan` date NOT NULL,
+  `tgl_pengajuan` text NOT NULL,
   `status` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tab_pengajuan`
+--
+
+INSERT INTO `tab_pengajuan` (`id`, `id_user`, `pekerjaan`, `penghasilan`, `pengeluaran`, `hutang`, `simpanan`, `tgl_pengajuan`, `status`) VALUES
+(2, 6, '4', 4, 5, 5, 1, '0000-00-00', 'Menunggu'),
+(3, 6, '5', 5, 5, 1, 5, '0000-00-00', 'Menunggu'),
+(4, 6, '5', 5, 5, 2, 3, '0000-00-00', 'Menunggu'),
+(5, 6, '5', 4, 3, 3, 3, '0000-00-00', 'Menunggu'),
+(6, 6, '5', 5, 4, 2, 5, '1705415153', 'Menunggu'),
+(7, 6, '5', 4, 4, 3, 4, '16-Jan-2024', 'Menunggu'),
+(8, 6, '2', 3, 4, 5, 5, '16 January 2024 21:30', 'Menunggu'),
+(9, 6, '4', 5, 4, 3, 4, '16 January 2024 21:33', 'Menunggu');
 
 -- --------------------------------------------------------
 
@@ -115,7 +131,7 @@ CREATE TABLE `tab_topsis` (
   `id_alternatif` varchar(10) NOT NULL,
   `id_kriteria` varchar(10) NOT NULL,
   `nilai` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tab_topsis`
@@ -146,16 +162,21 @@ CREATE TABLE `users` (
   `username` varchar(26) NOT NULL,
   `email` varchar(64) NOT NULL,
   `password` varchar(128) NOT NULL,
+  `dokumen1` varchar(128) DEFAULT NULL,
+  `dokumen2` varchar(128) DEFAULT NULL,
+  `dokumen3` varchar(128) DEFAULT NULL,
+  `dokumen4` varchar(128) DEFAULT NULL,
+  `dokumen5` varchar(128) DEFAULT NULL,
   `role` varchar(26) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `nama`, `username`, `email`, `password`, `role`) VALUES
-(5, 'admin', 'admin', 'admin@gmail.com', '$2y$10$pIryu1rnBFx2LUSR9wURaeFIqandFeFolpl/Kg11REHFRW.BOFIiG', 'admin'),
-(6, 'Teddy Nanta', 'teddy', 'teddy@gmail.com', '$2y$10$m0qm.HCskT9KOj364ruQJ.xyckUEVQdK58XeDt1fNZQYUsbdGV.vW', NULL);
+INSERT INTO `users` (`id`, `nama`, `username`, `email`, `password`, `dokumen1`, `dokumen2`, `dokumen3`, `dokumen4`, `dokumen5`, `role`) VALUES
+(5, 'admin', 'admin', 'admin@gmail.com', '$2y$10$pIryu1rnBFx2LUSR9wURaeFIqandFeFolpl/Kg11REHFRW.BOFIiG', NULL, NULL, NULL, NULL, NULL, 'admin'),
+(6, 'Teddy Nanta', 'teddy', 'teddy@gmail.com', '$2y$10$m0qm.HCskT9KOj364ruQJ.xyckUEVQdK58XeDt1fNZQYUsbdGV.vW', NULL, 'b', 'c', 'd', 'e', NULL);
 
 --
 -- Indexes for dumped tables
@@ -212,7 +233,7 @@ ALTER TABLE `data`
 -- AUTO_INCREMENT for table `tab_pengajuan`
 --
 ALTER TABLE `tab_pengajuan`
-  MODIFY `id` int(64) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(64) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`

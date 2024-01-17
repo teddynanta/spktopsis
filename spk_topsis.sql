@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2024 at 05:32 AM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Generation Time: Jan 17, 2024 at 08:42 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -36,7 +35,7 @@ CREATE TABLE `data` (
   `data4` text NOT NULL,
   `data5` text NOT NULL,
   `data6` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `data`
@@ -54,7 +53,7 @@ INSERT INTO `data` (`id`, `data1`, `data2`, `data3`, `data4`, `data5`, `data6`) 
 CREATE TABLE `tab_alternatif` (
   `id_alternatif` varchar(10) NOT NULL,
   `nama_alternatif` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tab_alternatif`
@@ -76,7 +75,7 @@ CREATE TABLE `tab_kriteria` (
   `nama_kriteria` varchar(50) NOT NULL,
   `bobot` float NOT NULL,
   `status` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tab_kriteria`
@@ -105,7 +104,7 @@ CREATE TABLE `tab_pengajuan` (
   `simpanan` int(128) NOT NULL,
   `tgl_pengajuan` text NOT NULL,
   `status` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tab_pengajuan`
@@ -131,7 +130,7 @@ CREATE TABLE `tab_topsis` (
   `id_alternatif` varchar(10) NOT NULL,
   `id_kriteria` varchar(10) NOT NULL,
   `nilai` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tab_topsis`
@@ -168,7 +167,7 @@ CREATE TABLE `users` (
   `dokumen4` varchar(128) DEFAULT NULL,
   `dokumen5` varchar(128) DEFAULT NULL,
   `role` varchar(26) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -176,7 +175,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `nama`, `username`, `email`, `password`, `dokumen1`, `dokumen2`, `dokumen3`, `dokumen4`, `dokumen5`, `role`) VALUES
 (5, 'admin', 'admin', 'admin@gmail.com', '$2y$10$pIryu1rnBFx2LUSR9wURaeFIqandFeFolpl/Kg11REHFRW.BOFIiG', NULL, NULL, NULL, NULL, NULL, 'admin'),
-(6, 'Teddy Nanta', 'teddy', 'teddy@gmail.com', '$2y$10$m0qm.HCskT9KOj364ruQJ.xyckUEVQdK58XeDt1fNZQYUsbdGV.vW', NULL, 'b', 'c', 'd', 'e', NULL);
+(6, 'Teddy Nanta', 'teddy', 'teddy@gmail.com', '$2y$10$m0qm.HCskT9KOj364ruQJ.xyckUEVQdK58XeDt1fNZQYUsbdGV.vW', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', NULL);
 
 --
 -- Indexes for dumped tables
@@ -239,7 +238,7 @@ ALTER TABLE `tab_pengajuan`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

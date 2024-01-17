@@ -73,13 +73,13 @@ include "head.php";
     </nav><br><br>
   </div>
   <div class="container">
-    <h2 class="text-center">Selamat datang!</h2>
+    <h2 class="text-center">Profil</h2>
 
     <div class="row">
       <div class="col-lg-12 col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading text-center">
-            Data Pengajuan
+            Data Diri
           </div>
           <!-- <div class="row"> -->
           <div class="panel-body">
@@ -87,28 +87,41 @@ include "head.php";
             <div class="tab-content row">
               <div class="col-lg-12 col-md-6">
                 <!--tabel alternatif-->
+                <p>Silahkan upload dokumen kelengkapan apabila ada yang belum lengkap.</p>
+                <i class="btn bg-warning bi bi-upload"></i> : menandakan anda belum mengupload file, klik icon untuk mengupload.<br>
+                <i class="btn bg-success bi bi-patch-check my-2"></i> : menandakan anda sudah mengupload file, klik icon untuk melihat berkas anda.
                 <table class="table table-responsive table-striped table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>ID Pengajuan</th>
+                      <th>ID User</th>
                       <th>Nama</th>
-                      <th>Tanggal Pengajuan</th>
-                      <th>Status</th>
+                      <th>Dokumen 1</th>
+                      <th>Dokumen 2</th>
+                      <th>Dokumen 3</th>
+                      <th>Dokumen 4</th>
+                      <th>Dokumen 5 </th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
                     $uid = $_SESSION['uid'];
-                    $sql = $koneksi->query('SELECT * FROM tab_pengajuan');
                     $users = $koneksi->query("SELECT * FROM users WHERE id = '$uid'");
-                    $user = $users->fetch_array();
-                    while ($row = $sql->fetch_array()) {
+                    // $user = $users->fetch_array();
+                    while ($user = $users->fetch_array()) {
                     ?>
                       <tr>
-                        <td><?php echo $row['id'] ?></td>
+                        <td><?php echo $user['id'] ?></td>
                         <td><?php echo $user['nama'] ?></td>
-                        <td><?php echo $row['tgl_pengajuan'] ?></td>
-                        <td><?php echo $row['status'] ?></td>
+                        <td class="text-center"><?php echo ($user['dokumen1'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?dok=dokumen1'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen1'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen1'></a>"; ?></td>
+
+                        <td class="text-center"><?php echo ($user['dokumen2'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen2'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen2'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen2'></a>"; ?></td>
+
+                        <td class="text-center"><?php echo ($user['dokumen3'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen3'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen3'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen3'></a>"; ?></td>
+
+                        <td class="text-center"><?php echo ($user['dokumen4'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen4'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen4'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen4'></a>"; ?></td>
+
+                        <td class="text-center"><?php echo ($user['dokumen5'] == null) ? "<a class='btn bg-warning bi bi-upload' href='tambahdokumen.php?id=dokumen5'></a>" : "<i class='btn bg-success bi bi-patch-check my-2'></i> <a class='btn bg-secondary bi bi-eye' href='" . $user['dokumen5'] . "'></a> <a class='btn bg-warning bi bi-pencil-fill' href='editdokumen.php?id=dokumen5'></a>"; ?></td>
+
                       </tr>
                     <?php
                     } ?>

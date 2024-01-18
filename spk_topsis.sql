@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2024 at 03:52 PM
+-- Generation Time: Jan 18, 2024 at 05:17 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -63,7 +63,8 @@ CREATE TABLE `tab_alternatif` (
 INSERT INTO `tab_alternatif` (`id_alternatif`, `nama_alternatif`) VALUES
 ('1', 'jono'),
 ('2', 'Wadiyah'),
-('6', 'Teddy Nanta');
+('6', 'Teddy Nanta'),
+('9', 'Bambang Sugiono');
 
 -- --------------------------------------------------------
 
@@ -83,11 +84,11 @@ CREATE TABLE `tab_kriteria` (
 --
 
 INSERT INTO `tab_kriteria` (`id_kriteria`, `nama_kriteria`, `bobot`, `status`) VALUES
-('10', 'Kondisi', 1, 'Cost'),
-('6', 'Karakter', 3, 'Benefit'),
-('7', 'Kapasitas', 4, 'Benefit'),
-('8', 'Modal', 5, 'Benefit'),
-('9', 'Jaminan', 2, 'Benefit');
+('c1', 'Karakter', 3, 'Benefit'),
+('c2', 'Kapasitas', 4, 'Benefit'),
+('c3', 'Modal', 5, 'Benefit'),
+('c4', 'Jaminan', 2, 'Benefit'),
+('c5', 'Kondisi', 1, 'Cost');
 
 -- --------------------------------------------------------
 
@@ -122,7 +123,8 @@ INSERT INTO `tab_pengajuan` (`id`, `id_user`, `p1`, `p2`, `p3`, `p4`, `p5`, `p6`
 (6, 6, '', 'Golongan IA', '', 'Kecil', '', 'Di Bawah Rp. 2.500.000', 'Di Bawah Rp. 2.500.000', 'Tidak Ada', '1705415153', 'Ditolak'),
 (7, 6, '', 'Golongan IB - ID', '', 'Sedang', '>5 Tahun', 'Di Bawah Rp. 2.500.000', 'Di Bawah Rp. 2.500.000', 'Tidak Ada', '16-Jan-2024', 'Diterima'),
 (8, 6, 'Tidak', 'Golongan II', '', '', '', 'Di Bawah Rp. 2.500.000', 'Di Bawah Rp. 2.500.000', 'Tidak Ada', '16 January 2024 21:30', 'Diterima'),
-(9, 6, '', 'Golongan IA', '', 'Sedang', '>5 Tahun', 'Di Bawah Rp. 2.500.000', 'Di Bawah Rp. 2.500.000', 'Tidak Ada', '16 January 2024 21:33', 'Menunggu');
+(9, 6, '', 'Golongan IA', '', 'Sedang', '>5 Tahun', 'Di Bawah Rp. 2.500.000', 'Di Bawah Rp. 2.500.000', 'Tidak Ada', '16 January 2024 21:33', 'Menunggu'),
+(10, 9, 'Ya', 'Golongan III', 'Ya', 'Kecil', '<1 Tahun', 'Rp. 5.000.000 - Rp. 10.000.000', 'Di Atas Rp. 10.000.000', 'Di Atas Rp. 10.000.000', '18 January 2024 22:13', 'Menunggu');
 
 -- --------------------------------------------------------
 
@@ -135,6 +137,22 @@ CREATE TABLE `tab_topsis` (
   `id_kriteria` varchar(10) NOT NULL,
   `nilai` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tab_topsis`
+--
+
+INSERT INTO `tab_topsis` (`id_alternatif`, `id_kriteria`, `nilai`) VALUES
+('6', 'c1', 50),
+('6', 'c2', 70),
+('6', 'c3', 60),
+('6', 'c4', 60),
+('6', 'c5', 50),
+('9', 'c1', 90),
+('9', 'c2', 80),
+('9', 'c3', 60),
+('9', 'c4', 50),
+('9', 'c5', 50);
 
 -- --------------------------------------------------------
 
@@ -220,7 +238,7 @@ ALTER TABLE `data`
 -- AUTO_INCREMENT for table `tab_pengajuan`
 --
 ALTER TABLE `tab_pengajuan`
-  MODIFY `id` int(64) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(64) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`

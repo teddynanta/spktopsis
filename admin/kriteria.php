@@ -55,7 +55,7 @@ include "header.php";
                 </thead>
                 <tbody>
                   <?php
-                  $criteria = $koneksi->query("SELECT * FROM tab_kriteria");
+                  $criteria = $koneksi->query("SELECT * FROM tab_kriteria ORDER BY id_kriteria ASC");
                   ?>
                   <?php while ($row = $criteria->fetch_assoc()) : ?>
                     <tr>

@@ -32,40 +32,43 @@ include "header.php";
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Tambah Kriteria</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Kriteria</h1>
           </div>
         </div>
         <!-- Content Row -->
+        <?php
+        $id = $_GET['id'];
+        $sql = $koneksi->query("SELECT * FROM tab_kriteria WHERE id_kriteria = $id");
+        $row = $sql->fetch_assoc();
+        ?>
         <div class="card shadow mb-4">
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Data Kriteria</h6>
           </div>
           <div class="card-body">
-            <form action="pt_kriteria.php" method="post">
+            <form action="pe_kriteria.php?id=<?= $id; ?>" method="post">
               <div class="mb-3">
                 <label for="disabledTextInput" class="form-label">Nama</label>
-                <input type="text" id="disabledTextInput" name="nama" class="form-control">
+                <input type="text" id="disabledTextInput" name="nama" class="form-control" value="<?= $row['nama_kriteria']; ?>">
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Bobot</label>
                 <select class="custom-select" aria-label="Default select example" name="bobot">
-                  <option selected>Bobot</option>
-                  <option value="5">5</option>
-                  <option value="4">4</option>
-                  <option value="3">3</option>
-                  <option value="2">2</option>
-                  <option value="1">1</option>
+                  <option>Bobot</option>
+                  <?php for ($i = 1; $i <= 5; $i++) : ?>
+                    <option value="<?= $i; ?>" <?php echo $i == $row['bobot'] ? "selected" : "" ?>><?= $i; ?></option>
+                  <?php endfor; ?>
                 </select>
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Status</label>
                 <select class="custom-select" aria-label="Default select example" name="status">
-                  <option selected>Status</option>
-                  <option value="Cost">Cost</option>
-                  <option value="Benefit">Benefit</option>
+                  <option>Status</option>
+                  <option value="Cost" <?= $row['status'] == 'Cost' ? 'selected' : "" ?>>Cost</option>
+                  <option value="Benefit" <?= $row['status'] == 'Benefit' ? 'selected' : "" ?>>Benefit</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-primary">Tambah Kriteria</button>
+              <button type="submit" class="btn btn-primary">Edit Kriteria</button>
             </form>
           </div>
         </div>

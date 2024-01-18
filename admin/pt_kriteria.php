@@ -16,7 +16,7 @@ $stmt->bind_param("ssss", $id, $nama, $bobot, $status);
 
 if ($stmt->execute()) {
   echo "<script>alert('Input Data Berhasil') </script>";
-  header("Refresh: 3; URL=kriteria.php"); // Redirect to login.html after 3 seconds
+  header("Refresh: 2; URL=kriteria.php"); // Redirect to login.html after 3 seconds
   exit();
 } else {
   echo "Error: " . $stmt->error;

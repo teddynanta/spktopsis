@@ -41,6 +41,7 @@ include "header.php";
             <h6 class="m-0 font-weight-bold text-primary">Data Pengajuan</h6>
           </div>
           <div class="card-body">
+            <h6 class="m-0 font-weight-bold text-info">Dokumen Pendukung</h6>
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
@@ -72,6 +73,103 @@ include "header.php";
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <h6 class="m-0 font-weight-bold text-info">Jawaban Pendukung</h6>
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Apakah anda selalu membayar tagihan/hutang dengan tepat waktu?</th>
+                    <th>Golongan</th>
+                    <th>Apakah anda memiliki usaha?</th>
+                    <th>Skala usaha yang anda miliki</th>
+                    <th>Lama berdirinya usaha anda</th>
+                    <th>Penghasilan per bulan</th>
+                    <th>Pengeluaran per bulan</th>
+                    <th>Hutang</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><?= $row['p1']; ?></td>
+                    <td><?= $row['p2']; ?></td>
+                    <td><?= $row['p3']; ?></td>
+                    <td><?= $row['p4']; ?></td>
+                    <td><?= $row['p5']; ?></td>
+                    <td><?= $row['p6']; ?></td>
+                    <td><?= $row['p7']; ?></td>
+                    <td><?= $row['p8']; ?></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Nilai Matriks</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <form action="penilaian.php?id=<?= $_GET['uid']; ?>" method="post">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">C1. Karakter</label>
+                  <select class="custom-select" aria-label="Default select example" name="c1">
+                    <option selected>Nilai</option>
+                    <option value="90">Sangat Baik</option>
+                    <option value="80">Baik</option>
+                    <option value="70">Cukup Baik</option>
+                    <option value="60">Kurang Baik</option>
+                    <option value="50">Tidak Baik</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">C2. Kapasitas</label>
+                  <select class="custom-select" aria-label="Default select example" name="c2">
+                    <option selected>Nilai</option>
+                    <option value="90">Sangat Baik</option>
+                    <option value="80">Baik</option>
+                    <option value="70">Cukup Baik</option>
+                    <option value="60">Kurang Baik</option>
+                    <option value="50">Tidak Baik</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">C3. Modal</label>
+                  <select class="custom-select" aria-label="Default select example" name="c3">
+                    <option selected>Nilai</option>
+                    <option value="90">Sangat Baik</option>
+                    <option value="80">Baik</option>
+                    <option value="70">Cukup Baik</option>
+                    <option value="60">Kurang Baik</option>
+                    <option value="50">Tidak Baik</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">C4. Jaminan</label>
+                  <select class="custom-select" aria-label="Default select example" name="c4">
+                    <option selected>Nilai</option>
+                    <option value="90">Sangat Baik</option>
+                    <option value="80">Baik</option>
+                    <option value="70">Cukup Baik</option>
+                    <option value="60">Kurang Baik</option>
+                    <option value="50">Tidak Baik</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">C5. Kondisi</label>
+                  <select class="custom-select" aria-label="Default select example" name="c5">
+                    <option selected>Nilai</option>
+                    <option value="90">Sangat Baik</option>
+                    <option value="80">Baik</option>
+                    <option value="70">Cukup Baik</option>
+                    <option value="60">Kurang Baik</option>
+                    <option value="50">Tidak Baik</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Tambah Kriteria</button>
+              </form>
             </div>
           </div>
         </div>

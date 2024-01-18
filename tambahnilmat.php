@@ -9,13 +9,10 @@ $poin       = $_POST['nilai'];
 
 $tambah = $koneksi->query('SELECT * FROM tab_topsis');
 
-if ($row = $tambah->fetch_row()) {
+$masuk = "INSERT INTO tab_topsis VALUES ('" . $alternatif . "','" . $kriteria . "','" . $poin . "')";
+$buat  = $koneksi->query($masuk);
 
-  $masuk = "INSERT INTO tab_topsis VALUES ('".$alternatif."','".$kriteria."','".$poin."')";
-  $buat  = $koneksi->query($masuk);
+echo "<script>alert('Input Data Berhasil') </script>";
+echo "<script>window.location.href = \"nilmat.php\" </script>";
 
-  echo "<script>alert('Input Data Berhasil') </script>";
-  echo "<script>window.location.href = \"nilmat.php\" </script>";
-}
-
- ?>
+echo "gagal";

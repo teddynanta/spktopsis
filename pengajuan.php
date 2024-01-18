@@ -98,60 +98,83 @@ include "koneksi.php";
               <input type="text" id="disabledTextInput" name="nama" class="form-control" value="<?php echo $_SESSION['nama'] ?>" readonly>
             </div>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Pekerjaan</label>
-              <select class="form-select" aria-label="Default select example" name="pekerjaan">
-                <option selected>Pekerjaan</option>
-                <option value="5">Pegawai Negeri Sipil</option>
-                <option value="4">Pegawai BUMN</option>
-                <option value="3">Pegawai Swasta</option>
-                <option value="2">Pegawai Harian Lepas</option>
-                <option value="1">Tidak Bekerja</option>
+              <label for="exampleInputEmail1" class="form-label">Apakah anda selalu membayar tagihan/hutang dengan tepat waktu?</label>
+              <select class="form-select" aria-label="Default select example" name="p1">
+                <option selected>Jawaban</option>
+                <option value="1">Ya</option>
+                <option value="2">Tidak</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Golongan</label>
+              <select class="form-select" aria-label="Default select example" name="p2">
+                <option selected>Jawaban</option>
+                <option value="1">Golongan IV</option>
+                <option value="2">Golongan III</option>
+                <option value="3">Golongan II</option>
+                <option value="4">Golongan IB - ID</option>
+                <option value="5">Golongan IA</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Apakah anda memiliki usaha?</label>
+              <select class="form-select" aria-label="Default select example" name="p3">
+                <option selected>Jawaban</option>
+                <option value="1">Ya</option>
+                <option value="2">Tidak</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Skala usaha yang anda miliki</label>
+              <select class="form-select" aria-label="Default select example" name="p4">
+                <option selected>Jawaban</option>
+                <option value="1">Tidak Ada</option>
+                <option value="2">Kecil</option>
+                <option value="3">Sedang</option>
+                <option value="4">Besar</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Lama berdirinya usaha anda</label>
+              <select class="form-select" aria-label="Default select example" name="p5">
+                <option selected>Jawaban</option>
+                <option value="1">Tidak Ada</option>
+                <option value="2">Kurang dari 1 Tahun</option>
+                <option value="3">1 - 5 Tahun</option>
+                <option value="4">Lebih dari 5 Tahun</option>
               </select>
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Penghasilan per bulan</label>
-              <select class="form-select" aria-label="Default select example" name="penghasilan">
-                <option selected>Penghasilan</option>
-                <option value="5">Di atas Rp. 10.000.000</option>
-                <option value="4">Rp. 5.000.000 - Rp. 10.000.000</option>
-                <option value="3">Rp. 1.000.000 - Rp. 5.000.000</option>
-                <option value="2">Rp. 500.000 - Rp. 1.000.000 </option>
-                <option value="1">Di Bawah Rp. 500.000</option>
+              <select class="form-select" aria-label="Default select example" name="p6">
+                <option selected>Jawaban</option>
+                <option value="1">Di bawah Rp. 2.500.000</option>
+                <option value="2">Rp. 2.500.000 - Rp. 5.000.000</option>
+                <option value="3">Rp. 5.000.000 - Rp. 10.000.000</option>
+                <option value="4">Di atas Rp. 10.000.000</option>
               </select>
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Pengeluaran per bulan</label>
-              <select class="form-select" aria-label="Default select example" name="pengeluaran">
-                <option selected>Pengeluaran</option>
-                <option value="5">Di atas Rp. 10.000.000</option>
-                <option value="4">Rp. 5.000.000 - Rp. 10.000.000</option>
-                <option value="3">Rp. 1.000.000 - Rp. 5.000.000</option>
-                <option value="2">Rp. 500.000 - Rp. 1.000.000 </option>
-                <option value="1">Di Bawah Rp. 500.000</option>
+              <select class="form-select" aria-label="Default select example" name="p7">
+                <option selected>Jawaban</option>
+                <option value="1">Di bawah Rp. 2.500.000</option>
+                <option value="2">Rp. 2.500.000 - Rp. 5.000.000</option>
+                <option value="3">Rp. 5.000.000 - Rp. 10.000.000</option>
+                <option value="4">Di atas Rp. 10.000.000</option>
               </select>
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Hutang</label>
-              <select class="form-select" aria-label="Default select example" name="hutang">
-                <option selected>Hutang</option>
-                <option value="5">Di atas Rp. 10.000.000</option>
-                <option value="4">Rp. 5.000.000 - Rp. 10.000.000</option>
-                <option value="3">Rp. 1.000.000 - Rp. 5.000.000</option>
-                <option value="2">Rp. 500.000 - Rp. 1.000.000 </option>
-                <option value="1">Di Bawah Rp. 500.000</option>
+              <select class="form-select" aria-label="Default select example" name="p8">
+                <option selected>Jawaban</option>
+                <option value="1">Tidak Ada</option>
+                <option value="2">Rp. 2.500.000 - Rp. 5.000.000</option>
+                <option value="3">Rp. 5.000.000 - Rp. 10.000.000</option>
+                <option value="4">Di atas Rp. 10.000.000</option>
               </select>
             </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Tabungan</label>
-              <select class="form-select" aria-label="Default select example" name="tabungan">
-                <option selected>Tabungan (Di Bank, Aset Tanah, Barang Berharga, dll)</option>
-                <option value="5">Di atas Rp. 10.000.000</option>
-                <option value="4">Rp. 5.000.000 - Rp. 10.000.000</option>
-                <option value="3">Rp. 1.000.000 - Rp. 5.000.000</option>
-                <option value="2">Rp. 500.000 - Rp. 1.000.000 </option>
-                <option value="1">Di Bawah Rp. 500.000</option>
-              </select>
-            </div>
+
 
             <button type="submit" class="btn btn-primary">Buat Pengajuan</button>
           </form>

@@ -1,8 +1,15 @@
 <?php
 session_start();
 include "../koneksi.php";
-$count = $koneksi->query("SELECT COUNT(*) FROM tab_pengajuan");
-$c = $count->fetch_assoc();
+$sql = $koneksi->query("SELECT * FROM tab_pengajuan ORDER BY tgl_pengajuan DESC");
+$pengajuan = $koneksi->query("SELECT COUNT(*) AS total FROM tab_pengajuan");
+$tot_pengajuan = $pengajuan->fetch_assoc();
+$p_terima = $koneksi->query("SELECT COUNT(*) AS total FROM tab_pengajuan WHERE status = 'diterima'");
+$diterima = $p_terima->fetch_assoc();
+$p_tolak = $koneksi->query("SELECT COUNT(*) AS total FROM tab_pengajuan WHERE status = 'ditolak'");
+$ditolak = $p_tolak->fetch_assoc();
+$p_menunggu = $koneksi->query("SELECT COUNT(*) AS total FROM tab_pengajuan WHERE status = 'menunggu'");
+$menunggu = $p_menunggu->fetch_assoc();
 ?>
 
 <!DOCTYPE html>

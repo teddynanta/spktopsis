@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2024 at 08:42 AM
+-- Generation Time: Jan 18, 2024 at 09:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -111,13 +111,13 @@ CREATE TABLE `tab_pengajuan` (
 --
 
 INSERT INTO `tab_pengajuan` (`id`, `id_user`, `pekerjaan`, `penghasilan`, `pengeluaran`, `hutang`, `simpanan`, `tgl_pengajuan`, `status`) VALUES
-(2, 6, '4', 4, 5, 5, 1, '0000-00-00', 'Menunggu'),
-(3, 6, '5', 5, 5, 1, 5, '0000-00-00', 'Menunggu'),
-(4, 6, '5', 5, 5, 2, 3, '0000-00-00', 'Menunggu'),
-(5, 6, '5', 4, 3, 3, 3, '0000-00-00', 'Menunggu'),
-(6, 6, '5', 5, 4, 2, 5, '1705415153', 'Menunggu'),
-(7, 6, '5', 4, 4, 3, 4, '16-Jan-2024', 'Menunggu'),
-(8, 6, '2', 3, 4, 5, 5, '16 January 2024 21:30', 'Menunggu'),
+(2, 6, '4', 4, 5, 5, 1, '0000-00-00', 'Ditolak'),
+(3, 6, '5', 5, 5, 1, 5, '0000-00-00', 'Ditolak'),
+(4, 6, '5', 5, 5, 2, 3, '0000-00-00', 'Ditolak'),
+(5, 6, '5', 4, 3, 3, 3, '0000-00-00', 'Ditolak'),
+(6, 6, '5', 5, 4, 2, 5, '1705415153', 'Ditolak'),
+(7, 6, '5', 4, 4, 3, 4, '16-Jan-2024', 'Diterima'),
+(8, 6, '2', 3, 4, 5, 5, '16 January 2024 21:30', 'Diterima'),
 (9, 6, '4', 5, 4, 3, 4, '16 January 2024 21:33', 'Menunggu');
 
 -- --------------------------------------------------------
@@ -175,7 +175,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `nama`, `username`, `email`, `password`, `dokumen1`, `dokumen2`, `dokumen3`, `dokumen4`, `dokumen5`, `role`) VALUES
 (5, 'admin', 'admin', 'admin@gmail.com', '$2y$10$pIryu1rnBFx2LUSR9wURaeFIqandFeFolpl/Kg11REHFRW.BOFIiG', NULL, NULL, NULL, NULL, NULL, 'admin'),
-(6, 'Teddy Nanta', 'teddy', 'teddy@gmail.com', '$2y$10$m0qm.HCskT9KOj364ruQJ.xyckUEVQdK58XeDt1fNZQYUsbdGV.vW', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', NULL);
+(6, 'Teddy Nanta', 'teddy', 'teddy@gmail.com', '$2y$10$m0qm.HCskT9KOj364ruQJ.xyckUEVQdK58XeDt1fNZQYUsbdGV.vW', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', NULL),
+(8, 'Jokowi', 'pimpinan', 'pimpinan@gmail.com', '$2y$10$C066tKn8cuzNSztdmBV48ujgws2iH8rYEQ8E0arggW9wSI4vl7wy2', NULL, NULL, NULL, NULL, NULL, 'pimpinan');
 
 --
 -- Indexes for dumped tables
@@ -238,7 +239,7 @@ ALTER TABLE `tab_pengajuan`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

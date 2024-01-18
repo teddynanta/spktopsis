@@ -99,19 +99,25 @@ include "head.php";
                   <tbody>
                     <?php
                     $uid = $_SESSION['uid'];
-                    $sql = $koneksi->query('SELECT * FROM tab_pengajuan');
+                    $counts = $koneksi->query("SELECT COUNT(*) AS total FROM tab_pengajuan WHERE id_user = $uid");
+                    $count = $counts->fetch_assoc();
+                    $sql = $koneksi->query("SELECT * FROM tab_pengajuan WHERE id_user = $uid");
                     $users = $koneksi->query("SELECT * FROM users WHERE id = '$uid'");
                     $user = $users->fetch_array();
-                    while ($row = $sql->fetch_array()) {
+                    if ($count['total'] > 0) :
+                      while ($row = $sql->fetch_array()) :
                     ?>
-                      <tr>
-                        <td><?php echo $row['id'] ?></td>
-                        <td><?php echo $user['nama'] ?></td>
-                        <td><?php echo $row['tgl_pengajuan'] ?></td>
-                        <td><?php echo $row['status'] ?></td>
-                      </tr>
-                    <?php
-                    } ?>
+                        <tr>
+                          <td><?php echo $row['id'] ?></td>
+                          <td><?php echo $user['nama'] ?></td>
+                          <td><?php echo $row['tgl_pengajuan'] ?></td>
+                          <td><?php echo $row['status'] ?></td>
+                        </tr>
+                      <?php
+                      endwhile;
+                    else : ?>
+                      <td class="text-center fst-italic" colspan="4">Belum ada pengajuan</td>
+                    <?php endif; ?>
                   </tbody>
                 </table>
                 <!--tabel alternatif-->
@@ -130,7 +136,7 @@ include "head.php";
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <em>Sistem Pendukung Keputusan Pemilihan Bus Pariwisata Metode Topsis</em>
+            <em>Sistem Pendukung Keputusan Metode Topsis</em>
           </div>
         </div>
       </div>

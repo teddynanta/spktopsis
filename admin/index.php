@@ -146,10 +146,16 @@ include "header.php";
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <?php while ($row = $sql->fetch_assoc()) : ?>
+                                        <?php
+                                        $id = $row['id_user'];
+                                        $names = $koneksi->query("SELECT * FROM users WHERE id = $id ");
+                                        $name = $names->fetch_assoc();
+                                        ?>
                                         <tr>
                                             <td style="width: 5%;"><?= $row['id']; ?></td>
-                                            <td><?= $row['id_user']; ?></td>
+                                            <td><?= $name['nama']; ?></td>
                                             <td><?= $row['tgl_pengajuan']; ?></td>
                                             <td class="text-center"><span class="badge <?php echo $row['status'] == 'Ditolak' ?  'bg-danger' : ($row['status'] == 'Diterima' ? 'bg-success' : 'bg-warning'); ?> text-white"><?= $row['status']; ?></span></td>
                                             <td class="text-center"><span class="badge <?php echo $row['status'] == 'Ditolak' ?  'bg-danger' : ($row['status'] == 'Diterima' ? 'bg-success' : 'bg-warning'); ?> text-white"><?= $row['status']; ?></span></td>

@@ -32,44 +32,47 @@ include "header.php";
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Penilaian</h1>
+            <h1 class="h3 mb-0 text-gray-800">Kriteria</h1>
           </div>
         </div>
         <!-- Content Row -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Pengajuan</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Kriteria</h6>
           </div>
           <div class="card-body">
+            <div><a class="btn btn-primary mb-3" href="tambahkriteria.php">Tambah Kriteria</a></div>
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>Nama</th>
-                    <th>Tanggal Pengajuan</th>
-                    <th>Dokumen 1</th>
-                    <th>Dokumen 2</th>
-                    <th>Dokumen 3</th>
-                    <th>Dokumen 4</th>
+                    <th>ID</th>
+                    <th>Nama Kriteria</th>
+                    <th>Bobot</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                  $uid = $_GET['uid'];
-                  $id = $_GET['id'];
-                  $users = $koneksi->query("SELECT * FROM users WHERE id = $uid");
-                  $user = $users->fetch_assoc();
-                  $rows = $koneksi->query("SELECT * FROM tab_pengajuan WHERE id=$id");
-                  $row = $rows->fetch_assoc();
+                  $criteria = $koneksi->query("SELECT * FROM tab_kriteria");
                   ?>
-                  <tr>
-                    <td style="width: 5%;"><?= $user['nama']; ?></td>
-                    <td><?= $row['tgl_pengajuan']; ?></td>
-                    <td class="text-center"><a class="btn btn-sm btn-primary" href="../<?= $user['dokumen1']; ?>"><i class="fas fa-eye"></i></a></td>
-                    <td class="text-center"><a class="btn btn-sm btn-primary" href="../<?= $user['dokumen2']; ?>"><i class="fas fa-eye"></i></a></td>
-                    <td class="text-center"><a class="btn btn-sm btn-primary" href="../<?= $user['dokumen3']; ?>"><i class="fas fa-eye"></i></a></td>
-                    <td class="text-center"><a class="btn btn-sm btn-primary" href="../<?= $user['dokumen4']; ?>"><i class="fas fa-eye"></i></a></td>
-                  </tr>
+                  <?php while ($row = $criteria->fetch_assoc()) : ?>
+                    <tr>
+                      <td style="width: 5%;"><?= $row['id_kriteria']; ?></td>
+                      <td><?= $row['nama_kriteria']; ?></td>
+                      <td><?= $row['bobot']; ?></td>
+                      <td><?= $row['status']; ?></td>
+                      <td class="text-center" style="width: 10%;">
+                        <a href="editkriteria.php?id=<?= $row['id_kriteria']; ?>">
+                          <i class="fas fa-edit fa-lg text-warning"></i>
+                        </a>&nbsp;
+                        <a href="hapuskriteria.php?id=<?= $row['id_kriteria']; ?>">
+                          <i class="fas fa-trash-alt fa-lg text-danger"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  <?php endwhile; ?>
                 </tbody>
               </table>
             </div>

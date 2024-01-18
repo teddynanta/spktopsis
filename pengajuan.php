@@ -81,7 +81,7 @@ include "koneksi.php";
         <?php
         $uid = $_SESSION['uid'];
         // $users = $koneksi->query("SELECT dokumen1, dokumen2, dokumen3, dokumen4, dokumen5 FROM users WHERE id ='$uid'");
-        $users = $koneksi->query("SELECT dokumen1, dokumen2, dokumen3, dokumen4, dokumen5 FROM users WHERE id ='$uid' AND dokumen1 IS NOT NULL AND dokumen2 IS NOT NULL AND dokumen3 IS NOT NULL AND dokumen4 IS NOT NULL AND dokumen5 IS NOT NULL");
+        $users = $koneksi->query("SELECT dokumen1, dokumen2, dokumen3, dokumen4 FROM users WHERE id ='$uid' AND dokumen1 IS NOT NULL AND dokumen2 IS NOT NULL AND dokumen3 IS NOT NULL AND dokumen4 IS NOT NULL");
         if ($users->fetch_assoc() == null) : ?>
           <h5>Maaf, anda belum bisa melakukan pengajuan.</h5>
           <p>Dokumen pelengkap anda belum lengkap, lengkapi terlebih dahulu dokumen anda untuk dapat melakukan pengajuan pinjaman!</p>
@@ -167,7 +167,7 @@ include "koneksi.php";
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <em>Sistem Pendukung Keputusan Pemilihan Bus Pariwisata Metode Topsis</em>
+            <em>Sistem Pendukung Keputusan Metode Topsis</em>
           </div>
         </div>
       </div>

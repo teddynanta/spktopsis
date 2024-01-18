@@ -21,8 +21,10 @@ if ($result->num_rows == 1) {
     $_SESSION['role'] = $row['role'];
     // echo "Login successful! Welcome, " . $username;
     if ($_SESSION['role'] == 'admin') {
-      header("location: admin/index.html"); // Redirect to login.html after 3 seconds
+      header("location: admin/index.php"); // Redirect to login.html after 3 seconds
       exit();
+    } elseif ($_SESSION['role'] == 'pimpinan') {
+      header("location: admin/index.php"); // Redirect to login.html after 3 seconds
     } else {
       header("location: index2.php"); // Redirect to login.html after 3 seconds
       exit();

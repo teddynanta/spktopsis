@@ -8,7 +8,7 @@ $email = $_POST['email'];
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password before storing
 // Prepare and bind the SQL statement
 $stmt = $koneksi->prepare("INSERT INTO users (nama, username, email, password) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("sss", $nama, $username, $email, $password);
+$stmt->bind_param("ssss", $nama, $username, $email, $password);
 
 // Execute the query
 if ($stmt->execute()) {

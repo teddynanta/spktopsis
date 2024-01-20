@@ -50,11 +50,11 @@ include "header.php";
                 <label for="exampleInputEmail1" class="form-label">Bobot</label>
                 <select class="custom-select" aria-label="Default select example" name="bobot">
                   <option selected>Bobot</option>
-                  <option value="5">5</option>
-                  <option value="4">4</option>
-                  <option value="3">3</option>
-                  <option value="2">2</option>
-                  <option value="1">1</option>
+                  <option value="0.5">0,5</option>
+                  <option value="0.4">0,4</option>
+                  <option value="0.3">0,3</option>
+                  <option value="0.2">0,2</option>
+                  <option value="0.1">0,1</option>
                 </select>
               </div>
               <div class="mb-3">

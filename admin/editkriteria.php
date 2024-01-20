@@ -38,7 +38,8 @@ include "header.php";
         <!-- Content Row -->
         <?php
         $id = $_GET['id'];
-        $sql = $koneksi->query("SELECT * FROM tab_kriteria WHERE id_kriteria = $id");
+        $sql = $koneksi->query("SELECT * FROM tab_kriteria WHERE id_kriteria = '$id'");
+        // var_dump($sql);
         $row = $sql->fetch_assoc();
         ?>
         <div class="card shadow mb-4">

@@ -36,14 +36,17 @@ $alamatdom = $_POST['alamatdom'];
 $notel = $_POST['notel'];
 $datenow = new DateTime('now');
 $date = $datenow->format('d F Y H:i');
+$status = 'Menunggu';
 
 $stmt = $koneksi->prepare("INSERT INTO data_pemohon (id_pengajuan, id_user, nama, bdate, warga, nik, npwp, ibu, nikah, pnama, pbdate, alamat, alamatdom, notel, tgl_submit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssssssssssss", $idpeng, $uid, $nama, $bdate, $warga, $nik, $npwp, $ibu, $nikah, $pnama, $pbdate, $alamat, $alamatdom, $notel, $date);
 
+$stmt2 = $koneksi->prepare("INSERT INTO tab_pengajuan (id_pengajuan, id_user, tgl_pengajuan, status) VALUES(?, ?, ?, ?)");
+$stmt2->bind_param("ssss", $idpeng, $uid, $date, $status);
 
 // Execute the query
 
-if ($stmt->execute()) {
+if ($stmt->execute() && $stmt2->execute()) {
   echo "<script>alert('Silahkan lanjutkan pengisian berikutnya') </script>";
   header("Refresh: 1; URL=pengajuan2.php?active=yes"); // Redirect to login.html after 3 seconds
   exit();

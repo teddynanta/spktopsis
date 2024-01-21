@@ -36,11 +36,13 @@ $sql = $koneksi->query("SELECT * FROM tab_pengajuan WHERE id_user = $uid");
                 <th>ID Pengajuan</th>
                 <th>Nama</th>
                 <th>Tanggal Pengajuan</th>
+                <th>Data Pemohon</th>
+                <th>Data Pekerjaan Pemohon</th>
+                <th>Data Penghasilan Pemohon</th>
+                <th>Data Permohonan Kredit</th>
+                <th>Data Pendukung</th>
+                <th>Download Formulir</th>
                 <th>Status</th>
-                <?php if ($_SESSION['role'] == 'admin') : ?>
-                  <th>Aksi</th>
-                <?php else : ?>
-                <?php endif; ?>
               </tr>
             </thead>
             <tbody>
@@ -52,9 +54,15 @@ $sql = $koneksi->query("SELECT * FROM tab_pengajuan WHERE id_user = $uid");
                 $name = $names->fetch_assoc();
                 ?>
                 <tr>
-                  <td style="width: 5%;" class="text-center"><?= $row['id']; ?></td>
+                  <td style="width: 5%;" class="text-center"><?= $row['id_pengajuan']; ?></td>
                   <td><?= $name['nama']; ?></td>
                   <td><?= $row['tgl_pengajuan']; ?></td>
+                  <td class="text-center align-middle"><i class="fas <?= $row['data_pemohon'] != null ? 'fa-check-circle text-success' : 'fa-times-circle text-danger'; ?>"></i></td>
+                  <td class="text-center align-middle"><i class="fas <?= $row['data_pekerjaan'] != null ? 'fa-check-circle text-success' : 'fa-times-circle text-danger'; ?>"></i></td>
+                  <td class="text-center align-middle"><i class="fas <?= $row['data_penghasilan'] != null ? 'fa-check-circle text-success' : 'fa-times-circle text-danger'; ?>"></i></td>
+                  <td class="text-center align-middle"><i class="fas <?= $row['data_permohonan'] != null ? 'fa-check-circle text-success' : 'fa-times-circle text-danger'; ?>"></i></td>
+                  <td class="text-center align-middle"><i class="fas <?= $row['data_pendukung'] != null ? 'fa-check-circle text-success' : 'fa-times-circle text-danger'; ?>"></i></td>
+                  <td class="text-center align-middle"><i class="fas <?= $row['data_pendukung'] != null ? 'fa-download text-info' : 'fa-times-circle text-danger'; ?>"></i></td>
                   <td class="text-center"><span class="badge <?php echo $row['status'] == 'Ditolak' ?  'bg-danger' : ($row['status'] == 'Diterima' ? 'bg-success' : 'bg-warning'); ?> text-white"><?= $row['status']; ?></span></td>
                 </tr>
               <?php endwhile; ?>

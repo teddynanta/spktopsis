@@ -20,7 +20,7 @@ if ($count['c'] == 0) {
   $id = str_pad($pid + 1, 5, "0", STR_PAD_LEFT);
 }
 $year = date('Y');
-$uid = 10;
+$uid = $_POST['iduser'];
 $idpeng = 'PENG/' . $id . '/' . $uid .  '/' . $year;
 $nama = $_POST['nama'];
 $bdate = $_POST['bdate'];

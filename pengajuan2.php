@@ -24,7 +24,7 @@ $uid = $_SESSION['uid'];
         <p>Isikan formulir ini dengan sebenar-benarnya.</p>
         <p>Setelah selesai anda akan diberikan formulir cetak berbentuk PDF.</p>
         <br>
-        <form action="pd_pemohon.php" method="POST">
+        <form action="pdp_pemohon.php" method="POST">
 
           <input type="hidden" id="disabledTextInput" name="iduser" class="form-control" value="<?php echo $_SESSION['uid'] ?>" readonly>
 
@@ -77,7 +77,7 @@ $uid = $_SESSION['uid'];
           </div>
           <div class="mb-3">
             <label for="disabledTextInput" class="form-label">No. Telepon Kantor</label>
-            <input type="text" id="disabledTextInput" name="notel" class="form-control" placeholder="Masukan No. Telepon Kantor Anda">
+            <input type="text" id="disabledTextInput" name="notelkantor" class="form-control" placeholder="Masukan No. Telepon Kantor Anda">
           </div>
           <div class="mb-3">
             <label for="disabledTextInput" class="form-label">Nama Atasan</label>

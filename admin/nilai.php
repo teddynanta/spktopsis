@@ -42,7 +42,7 @@ include "header.php";
           </div>
           <div class="card-body">
             <h6 class="m-0 font-weight-bold text-info">Dokumen Pendukung</h6>
-            <div class="table-responsive">
+            <div class="table-responsive mb-3">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
@@ -60,8 +60,16 @@ include "header.php";
                   $id = $_GET['id'];
                   $users = $koneksi->query("SELECT * FROM users WHERE id = $uid");
                   $user = $users->fetch_assoc();
-                  $rows = $koneksi->query("SELECT * FROM tab_pengajuan WHERE id=$id");
+                  $rows = $koneksi->query("SELECT * FROM tab_pengajuan WHERE id_pengajuan = '$id'");
                   $row = $rows->fetch_assoc();
+                  $datap = $koneksi->query("SELECT * FROM data_pemohon WHERE id_pengajuan = '$id'");
+                  $pemohon = $datap->fetch_assoc();
+                  $datak = $koneksi->query("SELECT * FROM data_pekerjaan WHERE id_pengajuan = '$id'");
+                  $kerja = $datak->fetch_assoc();
+                  $datah = $koneksi->query("SELECT * FROM data_penghasilan WHERE id_pengajuan = '$id'");
+                  $hasil = $datah->fetch_assoc();
+                  $datam = $koneksi->query("SELECT * FROM data_permohonan WHERE id_pengajuan = '$id'");
+                  $mohon = $datam->fetch_assoc();
                   ?>
                   <tr>
                     <td style="width: 5%;"><?= $user['nama']; ?></td>
@@ -74,31 +82,120 @@ include "header.php";
                 </tbody>
               </table>
             </div>
-            <h6 class="m-0 font-weight-bold text-info">Jawaban Pendukung</h6>
-            <div class="table-responsive">
+
+            <h6 class="m-0 font-weight-bold text-info">Data Pemohon</h6>
+            <div class="table-responsive mb-3">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>Apakah anda selalu membayar tagihan/hutang dengan tepat waktu?</th>
-                    <th>Golongan</th>
-                    <th>Apakah anda memiliki usaha?</th>
-                    <th>Skala usaha yang anda miliki</th>
-                    <th>Lama berdirinya usaha anda</th>
-                    <th>Penghasilan per bulan</th>
-                    <th>Pengeluaran per bulan</th>
-                    <th>Hutang</th>
+                    <th class="align-middle text-center">Nama</th>
+                    <th class="align-middle text-center">Tanggal Lahir</th>
+                    <th class="align-middle text-center">Kewarganegaraan</th>
+                    <th class="align-middle text-center">No. KTP</th>
+                    <th class="align-middle text-center">No. NPWP</th>
+                    <th class="align-middle text-center">Status Pernikahan</th>
+                    <th class="align-middle text-center">Nama Pasangan</th>
+                    <th class="align-middle text-center">Tanggal Lahir Pasangan</th>
+                    <th class="align-middle text-center">Alamat Sesuai KTP</th>
+                    <th class="align-middle text-center">Alamat Sesuai Domisili</th>
+                    <th class="align-middle text-center">No. Telepon</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><?= $row['p1']; ?></td>
-                    <td><?= $row['p2']; ?></td>
-                    <td><?= $row['p3']; ?></td>
-                    <td><?= $row['p4']; ?></td>
-                    <td><?= $row['p5']; ?></td>
-                    <td><?= $row['p6']; ?></td>
-                    <td><?= $row['p7']; ?></td>
-                    <td><?= $row['p8']; ?></td>
+                    <td><?= $pemohon['nama']; ?></td>
+                    <td><?= $pemohon['bdate']; ?></td>
+                    <td><?= $pemohon['warga']; ?></td>
+                    <td><?= $pemohon['nik']; ?></td>
+                    <td><?= $pemohon['npwp']; ?></td>
+                    <td><?= $pemohon['nikah']; ?></td>
+                    <td><?= $pemohon['pnama']; ?></td>
+                    <td><?= $pemohon['pbdate']; ?></td>
+                    <td><?= $pemohon['alamat']; ?></td>
+                    <td><?= $pemohon['alamatdom']; ?></td>
+                    <td><?= $pemohon['notel']; ?></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h6 class="m-0 font-weight-bold text-info">Data Pekerjaan Pemohon</h6>
+            <div class="table-responsive mb-3">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th class="align-middle text-center">Nama</th>
+                    <th class="align-middle text-center">Pekerjaan</th>
+                    <th class="align-middle text-center">NIP</th>
+                    <th class="align-middle text-center">Nama Dinas/Instansi/Perusahaan</th>
+                    <th class="align-middle text-center">Lama Bekerja</th>
+                    <th class="align-middle text-center">Jabatan</th>
+                    <th class="align-middle text-center">Alamat Kantor</th>
+                    <th class="align-middle text-center">No. Telepon Kantor</th>
+                    <th class="align-middle text-center">Atasan</th>
+                    <th class="align-middle text-center">Jabatan Atasan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><?= $pemohon['nama']; ?></td>
+                    <td><?= $kerja['pekerjaan']; ?></td>
+                    <td><?= $kerja['NIP']; ?></td>
+                    <td><?= $kerja['perusahaan']; ?></td>
+                    <td><?= $kerja['lamakerja']; ?></td>
+                    <td><?= $kerja['Jabatan']; ?></td>
+                    <td><?= $kerja['alamatkantor']; ?></td>
+                    <td><?= $kerja['notelkantor']; ?></td>
+                    <td><?= $kerja['atasan']; ?></td>
+                    <td><?= $kerja['jab_atasan']; ?></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h6 class="m-0 font-weight-bold text-info">Data Penghasilan Pemohon</h6>
+            <div class="table-responsive mb-3">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th class="align-middle text-center">Nama</th>
+                    <th class="align-middle text-center">Penghasilan per Bulan</th>
+                    <th class="align-middle text-center">Tunjangan (Sertifikasi)</th>
+                    <th class="align-middle text-center">Tunjangan (TPP)</th>
+                    <th class="align-middle text-center">Tunjangan Lainnya</th>
+                    <th class="align-middle text-center">No. Rekening</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><?= $pemohon['nama']; ?></td>
+                    <td><?= $hasil['penghasilan']; ?></td>
+                    <td><?= $hasil['sertifikasi']; ?></td>
+                    <td><?= $hasil['tpp']; ?></td>
+                    <td><?= $hasil['lainnya']; ?></td>
+                    <td><?= $hasil['norek']; ?></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h6 class="m-0 font-weight-bold text-info">Data Permohonan Kredit</h6>
+            <div class="table-responsive mb-3">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th class="align-middle text-center">Nama</th>
+                    <th class="align-middle text-center">Jumlah Permohonan Kredit</th>
+                    <th class="align-middle text-center">Rencana Jangka Waktu Peminjaman</th>
+                    <th class="align-middle text-center">Tujuan Permohonan Kredit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><?= $pemohon['nama']; ?></td>
+                    <td><?= $mohon['permohonan']; ?></td>
+                    <td><?= $mohon['jangka']; ?></td>
+                    <td><?= $mohon['tujuan']; ?></td>
                   </tr>
                 </tbody>
               </table>

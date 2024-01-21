@@ -2,6 +2,9 @@
 session_start();
 include "../koneksi.php";
 $id = $_GET['id'];
+$names = $koneksi->query("SELECT * FROM users WHERE id = $id");
+$name = $names->fetch_assoc();
+$n = $name['nama'];
 $c1 = $_POST['c1'];
 $c2 = $_POST['c2'];
 $c3 = $_POST['c3'];
@@ -28,6 +31,7 @@ $stmt4->bind_param("sss", $id, $ic4, $c4);
 $stmt5 = $koneksi->prepare("INSERT INTO tab_topsis (id_alternatif, id_kriteria, nilai) VALUES (?, ?, ?)");
 $stmt5->bind_param("sss", $id, $ic5, $c5);
 
+$insert = $koneksi->query("INSERT INTO tab_alternatif (id_alternatif, nama_alternatif) VALUES ($id, '$n')");
 // Execute the query
 
 if ($stmt->execute() && $stmt2->execute() && $stmt3->execute() && $stmt4->execute() && $stmt5->execute()) {

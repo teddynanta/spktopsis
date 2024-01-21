@@ -137,7 +137,6 @@ include "header.php";
                                         <th>ID Pengajuan</th>
                                         <th>Nama</th>
                                         <th>Tanggal Pengajuan</th>
-                                        <th>Rekomendasi</th>
                                         <th>Status</th>
                                         <?php if ($_SESSION['role'] == 'admin') : ?>
                                             <th>Aksi</th>
@@ -154,13 +153,12 @@ include "header.php";
                                         $name = $names->fetch_assoc();
                                         ?>
                                         <tr>
-                                            <td style="width: 5%;"><?= $row['id']; ?></td>
+                                            <td style="width: 5%;"><?= $row['id_pengajuan']; ?></td>
                                             <td><?= $name['nama']; ?></td>
                                             <td><?= $row['tgl_pengajuan']; ?></td>
                                             <td class="text-center"><span class="badge <?php echo $row['status'] == 'Ditolak' ?  'bg-danger' : ($row['status'] == 'Diterima' ? 'bg-success' : 'bg-warning'); ?> text-white"><?= $row['status']; ?></span></td>
-                                            <td class="text-center"><span class="badge <?php echo $row['status'] == 'Ditolak' ?  'bg-danger' : ($row['status'] == 'Diterima' ? 'bg-success' : 'bg-warning'); ?> text-white"><?= $row['status']; ?></span></td>
                                             <?php if ($_SESSION['role'] == 'admin') : ?>
-                                                <td class="text-center"><a href="nilai.php?id=<?= $row['id']; ?>&uid=<?= $row['id_user']; ?>"><i class="fas fa-pen fa-lg text-info"></i></a> <a href="terima.php?id=<?= $row['id']; ?>"><i class="fas fa-check-circle fa-lg text-success"></i></a><a href="tolak.php?id=<?= $row['id']; ?>"> <i class="fas fa-times-circle fa-lg text-danger"></i></a> <a href="tunggu.php?id=<?= $row['id']; ?>"> <i class="fas fa-hand-paper fa-lg text-warning"></i></a></td>
+                                                <td class="text-center"><a href="nilai.php?id=<?= $row['id_pengajuan']; ?>&uid=<?= $row['id_user']; ?>"><i class="fas fa-pen fa-lg text-info"></i></a> <a href="emailk.php?id=<?= $row['id_pengajuan']; ?>&uid=<?= $id; ?>&status=Diterima"><i class="fas fa-check-circle fa-lg text-success"></i></a><a href="tolak.php?id=<?= $row['id_pengajuan']; ?>&uid=<?= $id; ?>&status=Ditolak"> <i class="fas fa-times-circle fa-lg text-danger"></i></a> <a href="tunggu.php?id=<?= $row['id_pengajuan']; ?>"> <i class="fas fa-hand-paper fa-lg text-warning"></i></a></td>
                                             <?php else : ?>
                                             <?php endif; ?>
                                         </tr>

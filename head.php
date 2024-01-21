@@ -14,7 +14,7 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-static/">
 
 
-
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
   <link href="assets/bootstrap.min.css" rel="stylesheet">

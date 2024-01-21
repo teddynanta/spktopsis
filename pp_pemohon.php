@@ -26,7 +26,7 @@ $stmt->bind_param("ssssssss", $idpeng, $uid, $penghasilan, $sertifikasi, $tpp, $
 
 if ($stmt->execute()) {
   echo "<script>alert('Silahkan lanjutkan pengisian berikutnya') </script>";
-  header("Refresh: 1; URL=pengajuan3.php"); // Redirect to login.html after 3 seconds
+  header("Refresh: 1; URL=pengajuan4.php?active=yes"); // Redirect to login.html after 3 seconds
   exit();
 } else {
   echo "<script>alert('Input Data Gagal') </script>";

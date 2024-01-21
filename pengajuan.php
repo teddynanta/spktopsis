@@ -23,7 +23,7 @@ $uid = $_SESSION['uid'];
         <p>Isikan formulir ini dengan sebenar-benarnya.</p>
         <p>Setelah selesai anda akan diberikan formulir cetak berbentuk PDF.</p>
         <br>
-        <form action="pd_pemohon.php" method="post">
+        <form action="pd_pemohon.php" method="POST">
           <div class="mb-3">
             <label for="disabledTextInput" class="form-label">ID User</label>
             <input type="text" id="disabledTextInput" name="iduser" class="form-control" value="<?php echo $_SESSION['uid'] ?>" readonly>

@@ -1,13 +1,21 @@
 <?php
+date_default_timezone_set('Asia/Jakarta');
 session_start();
 include "koneksi.php";
 $id = 'PENG/00001/10/2024';
+$uid = 10;
 $sql = $koneksi->query("SELECT * FROM data_pemohon WHERE id_pengajuan = '$id'");
 $row = $sql->fetch_assoc();
 $sql2 = $koneksi->query("SELECT * FROM data_pekerjaan WHERE id_pengajuan = '$id'");
 $row2 = $sql2->fetch_assoc();
 $sql3 = $koneksi->query("SELECT * FROM data_penghasilan WHERE id_pengajuan = '$id'");
 $row3 = $sql3->fetch_assoc();
+$sql4 = $koneksi->query("SELECT * FROM data_permohonan WHERE id_pengajuan = '$id'");
+$row4 = $sql4->fetch_assoc();
+$namesql = $koneksi->query("SELECT * FROM users WHERE id = $uid");
+$name = $namesql->fetch_assoc();
+$datenow = new DateTime('now');
+$date = $datenow->format('d F Y');
 // var_dump($row);
 // var_dump($row2);
 include "vendor/autoload.php";
@@ -44,6 +52,7 @@ $html = '<style>
 
   .footer {
     border-top: 3px solid black;
+    font-size: 10pt;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -73,13 +82,31 @@ $html = '<style>
   .page-break { 
     page-break-before: always; 
   }
+
+  .ttd {
+    margin-top: 50px;
+    text-align: right;
+    margin-left: auto;
+    margin-right: 48px;
+  }
+
+  .tgl {
+    margin-top: 25px;
+    text-align: right;
+  }
+
+  .nama {
+    margin-top: 25px;
+    margin-right: 50px;
+    text-align: right;
+  }
 </style>
 </head>
 
 <body>
   <footer>
     <div class="footer">
-      <p>&copy; 2024 Your Company. All rights reserved.</p>
+      <p><i>Formulir ini dibuat secara otomatis oleh sistem</i></p>
     </div>
   </footer>
   <main>
@@ -230,8 +257,40 @@ $html = '<style>
           <td>' . $row3['norek'] . '</td>
         </tr>
       </table>
+      <h4 class="tab-head">DATA PERMOHONAN KREDIT</h4>
+      <table>
+        <tr>
+          <td>Jumlah Permohonan kredit</td>
+          <td>:</td>
+          <td>' . $row4['permohonan'] . '</td>
+        </tr>
+        <tr>
+          <td>Rencana Jangka Waktu</td>
+          <td>:</td>
+          <td>' . $row4['jangka'] . '</td>
+        </tr>
+        <tr>
+          <td>Tujuan Permohonan Kredit</td>
+          <td>:</td>
+          <td>' . $row4['tujuan'] . '</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tgl">
+      <p>Lubuklinggau, ' . $date . '</p>
+    </div>
+    <div class="ttd">
+      
+    </div>
+    <div class="nama">
+      <p>' . $name['nama'] . '</p>
     </div>
   </main>
+  <footer>
+    <div class="footer">
+      <p><i>Formulir ini dibuat secara otomatis oleh sistem</i></p>
+    </div>
+  </footer>
 </body>';
 
 

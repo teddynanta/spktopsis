@@ -2,7 +2,7 @@
 //koneksi
 session_start();
 include "koneksi.php";
-include "head.php";
+// include "head.php";
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +17,8 @@ include "head.php";
 <!--bootstrap-->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<link href="tampilan/css/bootstrap.min.css" rel="stylesheet">
-<link href="styles/slider.css" rel="stylesheet" type="text/css" media="all">
+<!-- <link href="tampilan/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- <link href="styles/slider.css" rel="stylesheet" type="text/css" media="all"> -->
 <style>
   body {
     display: flex;
@@ -37,7 +37,7 @@ include "head.php";
 <body class="mt-0 pt-0">
   <!--navbar navbar-default navbar-custom-->
   <!--menu-->
-  <div class="container">
+  <div class="container-fluid">
     <nav class="navbar navbar-expand-lg text-dark bg-primary mt-0" data-bs-theme="dark">
       <div class="container justify-content-start">
         <a class="navbar-brand text-wrap" href="index2.php">Sistem Pendukung Keputusan Metode Topsis</a>
@@ -144,7 +144,8 @@ include "head.php";
   </footer>
 
   <!--plugin-->
-  <script src="tampilan/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
 </body>
 

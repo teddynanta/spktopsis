@@ -26,7 +26,7 @@ if ($result->num_rows == 1) {
     } elseif ($_SESSION['role'] == 'pimpinan') {
       header("location: admin/index.php"); // Redirect to login.html after 3 seconds
     } else {
-      header("location: index2.php"); // Redirect to login.html after 3 seconds
+      header("location: home.php"); // Redirect to login.html after 3 seconds
       exit();
     }
     // Redirect to a logged-in page or perform necessary actions

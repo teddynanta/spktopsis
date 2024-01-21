@@ -45,24 +45,24 @@ $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->SMTPAuth = true;
 
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = 'spktopsisadm@gmail.com';
+$mail->Username = '@gmail.com';
 
 //Password to use for SMTP authentication
-$mail->Password = 'kkfb jkxo ptgh syrr';
-// $mail->Password = 'log2edm3IN';
+$mail->Password = '';
+// $mail->Password = '';
 
 //Set who the message is to be sent from
 //Note that with gmail you can only use your account address (same as `Username`)
 //or predefined aliases that you have configured within your account.
 //Do not use user-submitted addresses in here
-$mail->setFrom('spktopsisadm@gmail.com', 'SPK Admin');
+$mail->setFrom('@gmail.com', 'Admin');
 
 //Set an alternative reply-to address
 //This is a good place to put user-submitted addresses
-$mail->addReplyTo('spktopsisadm@gmail.com', 'SPK Admin');
+$mail->addReplyTo('@gmail.com', 'Admin');
 
 //Set who the message is to be sent to
-$mail->addAddress('teddynnt@gmail.com', 'Teddy Nanta');
+$mail->addAddress('@gmail.com', 'Beliau');
 
 //Set the subject line
 $mail->Subject = 'PHPMailer GMail SMTP test';
@@ -89,93 +89,3 @@ if (!$mail->send()) {
   #    echo "Message saved!";
   #}
 }
-
-// // Import PHPMailer classes into the global namespace 
-// use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\SMTP;
-// use PHPMailer\PHPMailer\Exception;
-
-// // Include library files 
-// require 'PHPMailer/src/Exception.php';
-// require 'PHPMailer/src/PHPMailer.php';
-// require 'PHPMailer/src/SMTP.php';
-
-// // Create an instance; Pass `true` to enable exceptions 
-// $mail = new PHPMailer;
-
-// // Server settings 
-// //$mail->SMTPDebug = SMTP::DEBUG_SERVER;    //Enable verbose debug output 
-// $mail->isSMTP();                            // Set mailer to use SMTP 
-// $mail->Host = 'smtp.gmail.com';           // Specify main and backup SMTP servers 
-// $mail->SMTPAuth = true;                     // Enable SMTP authentication 
-// $mail->Username = 'spktopsisadm@gmail.com';       // SMTP username 
-// $mail->Password = 'kkfb jkxo ptgh syrr';         // SMTP password 
-// $mail->SMTPSecure = 'ssl';                  // Enable TLS encryption, `ssl` also accepted 
-// $mail->Port = 465;                          // TCP port to connect to 
-
-// // Sender info 
-// $mail->setFrom('spktopsisadm@gmail.com', 'SPK Admin');
-// $mail->addReplyTo('spktopsisadm@gmail.com', 'SPK Admin');
-
-// // Add a recipient 
-// $mail->addAddress('kuropantsu99@gmail.com');
-
-// //$mail->addCC('cc@example.com'); 
-// //$mail->addBCC('bcc@example.com'); 
-
-// // Set email format to HTML 
-// $mail->isHTML(true);
-
-// // Mail subject 
-// $mail->Subject = 'Email from Localhost by CodexWorld';
-
-// // Mail body content 
-// $bodyContent = '<h1>How to Send Email from Localhost using PHP by CodexWorld</h1>';
-// $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>CodexWorld</b></p>';
-// $mail->Body    = $bodyContent;
-
-// // Send email 
-// if (!$mail->send()) {
-//   echo 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
-// } else {
-//   echo 'Message has been sent.';
-// }
-
-
-// use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\Exception;
-// use PHPMailer\PHPMailer\SMTP;
-
-
-// require 'PHPMailer/src/Exception.php';
-// require 'PHPMailer/src/PHPMailer.php';
-// require 'PHPMailer/src/SMTP.php';
-
-// $email = htmlspecialchars($_POST['email']);
-// $judul = htmlspecialchars($_POST['judul']);
-// $pesan = htmlspecialchars($_POST['pesan']);
-
-// $mail = new PHPMailer(true);
-
-// try {
-//   $mail->SMTPDebug = 2;
-//   $mail->isSMTP();
-//   $mail->Host       = 'smtp.gmail.com';
-//   $mail->SMTPAuth   = true;
-//   // email aktif yang sebelumnya di setting
-//   $mail->Username   = 'spktopsisadm@gmail.com';
-//   // password yang sebelumnya di simpan
-//   $mail->Password   = '';
-//   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-//   $mail->Port       = 587;
-
-//   $mail->setFrom('mail@gmail.com', 'tutorial malasngoding');
-//   $mail->addAddress($email);
-//   $mail->isHTML(true);
-//   $mail->Subject = $judul;
-//   $mail->Body = $pesan;
-//   $mail->send();
-//   header("location:index.php?alert=berhasil");
-// } catch (Exception $e) {
-//   header("location:index.php?alert=gagal");
-// }

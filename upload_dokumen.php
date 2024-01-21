@@ -10,16 +10,16 @@ include "head.php";
   <?php include "navbar.php" ?>;
 
   <div class="container-xl">
-    <h2 class="text-center">Profil</h2>
+    <h2 class="text-center">Dokumen Kelengkapan</h2>
 
     <div class="row">
       <div class="col-lg-12 col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-heading text-center">
-            Data Diri
+        <div class="card shadow mb-4 mt-4">
+          <div class="card-header py-3 text-center">
+            Data Dokumen
           </div>
           <!-- <div class="row"> -->
-          <div class="panel-body">
+          <div class="card-body">
             <!-- Tab panes -->
             <div class="tab-content row">
               <div class="col-lg-12 col-md-6">
@@ -77,7 +77,7 @@ include "head.php";
   <?php include "footer.php" ?>;
 
   <!--plugin-->
-  <script src="tampilan/js/bootstrap.min.js"></script>
+  <script src="assets/bootstrap.bundle.min.js"></script>
 
 </body>
 

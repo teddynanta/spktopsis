@@ -9,7 +9,7 @@ include "head.php";
   <!--navbar navbar-default navbar-custom-->
   <?php include "navbar.php" ?>;
   <div class="container-xl">
-    <h2 class="text-center">Tambah Dokumen</h2>
+    <h2 class="text-center">Edit Dokumen</h2>
 
     <div class="row">
       <div class="col-lg-12 col-md-6">
@@ -42,7 +42,7 @@ include "head.php";
   <?php include "footer.php" ?>;
 
   <!--plugin-->
-  <script src="tampilan/js/bootstrap.min.js"></script>
+  <script src="assets/bootstrap.bundle.min.js"></script>
 
 </body>
 

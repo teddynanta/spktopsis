@@ -2,8 +2,8 @@
 date_default_timezone_set('Asia/Jakarta');
 session_start();
 include "koneksi.php";
-$id = 'PENG/00001/10/2024';
-$uid = 10;
+$id = $_GET['id'];
+$uid = $_GET['uid'];
 $sql = $koneksi->query("SELECT * FROM data_pemohon WHERE id_pengajuan = '$id'");
 $row = $sql->fetch_assoc();
 $sql2 = $koneksi->query("SELECT * FROM data_pekerjaan WHERE id_pengajuan = '$id'");
@@ -16,6 +16,7 @@ $namesql = $koneksi->query("SELECT * FROM users WHERE id = $uid");
 $name = $namesql->fetch_assoc();
 $datenow = new DateTime('now');
 $date = $datenow->format('d F Y');
+$filename = $id . '-' . $name['nama'];
 // var_dump($row);
 // var_dump($row2);
 include "vendor/autoload.php";
@@ -306,7 +307,7 @@ $dompdf->setPaper('A4', 'Portrait');
 $dompdf->render();
 ob_end_clean();
 // Output the generated PDF to Browser
-$dompdf->stream('file', array("Attachment" => 0));
+$dompdf->stream($filename, array("Attachment" => 0));
 
 // //menyertakan file fpdf, file fpdf.php di dalam folder FPDF yang diekstrak
 // include "vendor/fpdf/fpdf.php";

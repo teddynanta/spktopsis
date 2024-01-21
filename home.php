@@ -52,7 +52,15 @@ $sql = $koneksi->query("SELECT * FROM tab_pengajuan WHERE id_user = $uid");
                 $id = $row['id_user'];
                 $names = $koneksi->query("SELECT * FROM users WHERE id = $id ");
                 $name = $names->fetch_assoc();
+                // $users = $koneksi->query("SELECT dokumen1, dokumen2, dokumen3, dokumen4 FROM users WHERE id ='$uid' AND dokumen1 IS NOT NULL AND dokumen2 IS NOT NULL AND dokumen3 IS NOT NULL AND dokumen4 IS NOT NULL");
+                $pengajuan = $koneksi->query("SELECT data_pemohon, data_pekerjaan, data_penghasilan, data_permohonan, data_pendukung FROM tab_pengajuan WHERE id_user ='$id' AND data_pemohon IS NOT NULL AND data_pekerjaan IS NOT NULL AND data_penghasilan IS NOT NULL AND data_permohonan IS NOT NULL AND data_pendukung IS NOT NULL");
+                if ($pengajuan->fetch_assoc() == null) {
+                  $check = false;
+                } else {
+                  $check = true;
+                };
                 ?>
+
                 <tr>
                   <td style="width: 5%;" class="text-center"><?= $row['id_pengajuan']; ?></td>
                   <td><?= $name['nama']; ?></td>
@@ -62,7 +70,7 @@ $sql = $koneksi->query("SELECT * FROM tab_pengajuan WHERE id_user = $uid");
                   <td class="text-center align-middle"><i class="fas <?= $row['data_penghasilan'] != null ? 'fa-check-circle text-success' : 'fa-times-circle text-danger'; ?>"></i></td>
                   <td class="text-center align-middle"><i class="fas <?= $row['data_permohonan'] != null ? 'fa-check-circle text-success' : 'fa-times-circle text-danger'; ?>"></i></td>
                   <td class="text-center align-middle"><i class="fas <?= $row['data_pendukung'] != null ? 'fa-check-circle text-success' : 'fa-times-circle text-danger'; ?>"></i></td>
-                  <td class="text-center align-middle"><i class="fas <?= $row['data_pendukung'] != null ? 'fa-download text-info' : 'fa-times-circle text-danger'; ?>"></i></td>
+                  <td class="text-center align-middle"><a href="topdf.php?id=<?= $row['id_pengajuan']; ?>&uid=<?= $uid; ?>"><i class="fas <?= $check == true ? 'fa-download text-info' : 'fa-times-circle text-danger'; ?>"></a></i></td>
                   <td class="text-center"><span class="badge <?php echo $row['status'] == 'Ditolak' ?  'bg-danger' : ($row['status'] == 'Diterima' ? 'bg-success' : 'bg-warning'); ?> text-white"><?= $row['status']; ?></span></td>
                 </tr>
               <?php endwhile; ?>

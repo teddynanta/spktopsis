@@ -19,12 +19,12 @@ $date = $datenow->format('d F Y H:i');
 $stmt = $koneksi->prepare("INSERT INTO data_permohonan (id_pengajuan, id_user, permohonan, jangka, tujuan, tgl_submit) VALUES (?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssssss", $idpeng, $uid, $permohonan, $jangka, $tujuan, $date);
 
-
+$update = $koneksi->query("UPDATE tab_pengajuan SET data_permohonan = 1 WHERE id_pengajuan = '$idpeng'");
 // Execute the query
 
 if ($stmt->execute()) {
   echo "<script>alert('Lanjutkan dengan melengkapi dokumen pendukung.') </script>";
-  header("Refresh: 1; URL=upload_dokumen.php?active=yes"); // Redirect to login.html after 3 seconds
+  header("Refresh: 1; URL=upload_dokumen.php?active=yes&id=$idpeng"); // Redirect to login.html after 3 seconds
   exit();
 } else {
   echo "<script>alert('Input Data Gagal') </script>";

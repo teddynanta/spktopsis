@@ -37,13 +37,13 @@ $notel = $_POST['notel'];
 $datenow = new DateTime('now');
 $date = $datenow->format('d F Y H:i');
 $status = 'Menunggu';
+$datap = 1;
 
 $stmt = $koneksi->prepare("INSERT INTO data_pemohon (id_pengajuan, id_user, nama, bdate, warga, nik, npwp, ibu, nikah, pnama, pbdate, alamat, alamatdom, notel, tgl_submit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssssssssssss", $idpeng, $uid, $nama, $bdate, $warga, $nik, $npwp, $ibu, $nikah, $pnama, $pbdate, $alamat, $alamatdom, $notel, $date);
 
-$stmt2 = $koneksi->prepare("INSERT INTO tab_pengajuan (id_pengajuan, id_user, tgl_pengajuan, status) VALUES(?, ?, ?, ?)");
-$stmt2->bind_param("ssss", $idpeng, $uid, $date, $status);
-
+$stmt2 = $koneksi->prepare("INSERT INTO tab_pengajuan (id_pengajuan, id_user, data_pemohon tgl_pengajuan, status) VALUES(?, ?, ?, ?, ?)");
+$stmt2->bind_param("ssss", $idpeng, $uid, $datap, $date, $status);
 // Execute the query
 
 if ($stmt->execute() && $stmt2->execute()) {

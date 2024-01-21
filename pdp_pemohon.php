@@ -25,7 +25,7 @@ $date = $datenow->format('d F Y H:i');
 $stmt = $koneksi->prepare("INSERT INTO data_pekerjaan (id_pengajuan, id_user, pekerjaan, nip, perusahaan, lamakerja, jabatan, alamatkantor, notelkantor, atasan, jab_atasan, tgl_submit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssssssssssss", $idpeng, $uid, $pekerjaan, $nip, $perusahaan, $lamakerja, $jabatan, $alamatkantor, $notelkantor, $atasan, $jab_atasan, $date);
 
-
+$update = $koneksi->query("UPDATE tab_pengajuan SET data_pekerjaan = 1 WHERE id_pengajuan = '$idpeng'");
 // Execute the query
 
 if ($stmt->execute()) {

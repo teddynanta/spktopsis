@@ -24,7 +24,7 @@ $uid = $_SESSION['uid'];
         <p>Isikan formulir ini dengan sebenar-benarnya.</p>
         <p>Setelah selesai anda akan diberikan formulir cetak berbentuk PDF.</p>
         <br>
-        <form action="upload.php" method="POST" enctype="multipart/form-data">
+        <form action="upload.php?id=<?= $_GET['id']; ?>" method="POST" enctype="multipart/form-data">
 
           <input type="hidden" id="disabledTextInput" name="iduser" class="form-control" value="<?php echo $_SESSION['uid'] ?>" readonly>
 

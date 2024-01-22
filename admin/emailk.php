@@ -94,6 +94,7 @@ $mail->Body = 'Selamat Bapak/Ibu ' . $nama . ', pengajuan kredit Anda dengan No.
 if (!$mail->send()) {
   echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
+  $stmt->execute();
   echo 'Message sent!';
   header("Refresh: 1; URL=index.php"); // Redirect to login.html after 3 seconds
   //Section 2: IMAP

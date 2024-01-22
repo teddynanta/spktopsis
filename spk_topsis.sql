@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2024 at 12:14 AM
+-- Generation Time: Jan 22, 2024 at 02:30 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.1.25
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -262,11 +262,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `nama`, `username`, `email`, `password`, `dokumen1`, `dokumen2`, `dokumen3`, `dokumen4`, `role`) VALUES
 (5, 'admin', 'admin', 'admin@gmail.com', '$2y$10$pIryu1rnBFx2LUSR9wURaeFIqandFeFolpl/Kg11REHFRW.BOFIiG', NULL, NULL, NULL, NULL, 'admin'),
-(6, 'Teddy Nanta', 'teddy', 'teddy@gmail.com', '$2y$10$m0qm.HCskT9KOj364ruQJ.xyckUEVQdK58XeDt1fNZQYUsbdGV.vW', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', 'user'),
+(6, 'Teddy Nanta', 'teddy', 'teddynnt@gmail.com', '$2y$10$RcdcfF4WbuRh7HqPNoJ3n.YdFOE8Fy0/ypAjtoH8Ji1ZnfajRTCeO', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', 'uploads/none.pdf', 'user'),
 (8, 'Jokowi', 'pimpinan', 'pimpinan@gmail.com', '$2y$10$C066tKn8cuzNSztdmBV48ujgws2iH8rYEQ8E0arggW9wSI4vl7wy2', NULL, NULL, NULL, NULL, 'pimpinan'),
-(9, 'Bambang Sugiono', 'user', 'user@email.com', '$2y$10$eOYiXa7eob5fJiXj6EbqjOcu0CqxCNXQhQNdW.iS1kOTvfg7kfaIS', 'uploads/gunung.pdf', 'uploads/Dinamika Penduduk Benua Asia.pdf', 'uploads/Alat  Berat dan Pemindahan Tanah Mekanis  - Bab III PENGGUNAAN & KEMAMPUAN ALAT.pdf', 'uploads/DAFTAR_PUSTAKA.pdf', NULL),
-(10, 'Dewi Anggun', 'dewi', 'dewi@gmail.com', '$2y$10$WxI26Kufy9/9Vphg3Z2rsu49NDjVJ2jQz7yz7HPd6iHHQr7Y6/Xv2', 'uploads/document (1).pdf', 'uploads/document.pdf', 'uploads/file (1).pdf', 'uploads/file (2).pdf', NULL),
-(11, 'Ansor Abror', 'kuro', 'kuropantsu99@gmail.com', '$2y$10$1TvmyrkD8wLDx8IrhqpkJ.WYKGoAhv3xy5Iotjh1E2vzwDNqQwD26', 'uploads/SanDiskMemoryZone_QuickStartGuide.pdf', 'uploads/document (1).pdf', 'uploads/file (1).pdf', 'uploads/file (2).pdf', NULL);
+(9, 'Bambang Sugiono', 'user', 'user@email.com', '$2y$10$eOYiXa7eob5fJiXj6EbqjOcu0CqxCNXQhQNdW.iS1kOTvfg7kfaIS', 'uploads/gunung.pdf', 'uploads/Dinamika Penduduk Benua Asia.pdf', 'uploads/Alat  Berat dan Pemindahan Tanah Mekanis  - Bab III PENGGUNAAN & KEMAMPUAN ALAT.pdf', 'uploads/DAFTAR_PUSTAKA.pdf', 'user'),
+(10, 'Dewi Anggun', 'dewi', 'dewi@gmail.com', '$2y$10$WxI26Kufy9/9Vphg3Z2rsu49NDjVJ2jQz7yz7HPd6iHHQr7Y6/Xv2', 'uploads/document (1).pdf', 'uploads/document.pdf', 'uploads/file (1).pdf', 'uploads/file (2).pdf', 'user'),
+(11, 'Ansor Abror', 'kuro', 'kuropantsu99@gmail.com', '$2y$10$1TvmyrkD8wLDx8IrhqpkJ.WYKGoAhv3xy5Iotjh1E2vzwDNqQwD26', 'uploads/SanDiskMemoryZone_QuickStartGuide.pdf', 'uploads/document (1).pdf', 'uploads/file (1).pdf', 'uploads/file (2).pdf', 'user');
 
 --
 -- Indexes for dumped tables

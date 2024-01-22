@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary mb-4 px-5">
   <div class="container-fluid">
-    <a class="navbar-brand" href="home.php">SPK TOPSIS</a>
+    <a href="home.php"><img src="gambar/logobabelw.png" alt="Company Logo" class="navbar-brand" style="max-width: 50%;"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
